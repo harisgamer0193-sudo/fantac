@@ -1,0 +1,158 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const navLinks = [
+  { label: "Collections", href: "#collections" },
+  { label: "Craftsmanship", href: "#craftsmanship" },
+  { label: "Showroom", href: "#showroom" },
+  { label: "Contact", href: "#contact" },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+          scrolled
+            ? "bg-background/95 backdrop-blur-md shadow-[0_1px_0_rgba(201,169,110,0.15)]"
+            : "bg-transparent"
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3 group">
+            <div
+              className={`w-10 h-10 rounded-sm flex items-center justify-center transition-all duration-500 ${
+                scrolled
+                  ? "bg-espresso"
+                  : "bg-white/10 backdrop-blur-sm border border-white/20"
+              }`}
+            >
+              <span
+                className={`font-[family-name:var(--font-playfair)] text-xl font-bold transition-colors duration-500 ${
+                  scrolled ? "text-gold" : "text-white"
+                }`}
+              >
+                F
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span
+                className={`font-[family-name:var(--font-playfair)] text-lg font-semibold tracking-wide transition-colors duration-500 ${
+                  scrolled ? "text-espresso" : "text-white"
+                }`}
+              >
+                FANTAC
+              </span>
+              <span
+                className={`text-[10px] tracking-[0.3em] uppercase transition-colors duration-500 ${
+                  scrolled ? "text-warm-500" : "text-white/60"
+                }`}
+              >
+                Furnitures
+              </span>
+            </div>
+          </a>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`text-sm tracking-[0.15em] uppercase elegant-hover transition-colors duration-500 ${
+                  scrolled
+                    ? "text-charcoal-700 hover:text-espresso"
+                    : "text-white/80 hover:text-white"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+            <Button
+              variant="outline"
+              className={`rounded-none px-6 text-xs tracking-[0.15em] uppercase transition-all duration-500 ${
+                scrolled
+                  ? "border-espresso text-espresso hover:bg-espresso hover:text-ivory"
+                  : "border-white/40 text-white hover:bg-white/10 hover:border-white/60"
+              }`}
+            >
+              Book Visit
+            </Button>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className={`md:hidden p-2 transition-colors duration-500 ${
+              scrolled ? "text-espresso" : "text-white"
+            }`}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+      </motion.header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-espresso/98 backdrop-blur-lg md:hidden"
+          >
+            <div className="flex flex-col items-center justify-center h-full gap-8">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 + 0.2 }}
+                  className="font-[family-name:var(--font-playfair)] text-3xl text-ivory/90 hover:text-gold transition-colors"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <Button
+                  variant="outline"
+                  className="rounded-none px-8 py-3 text-sm tracking-[0.15em] uppercase border-gold/50 text-gold hover:bg-gold/10 hover:border-gold mt-4"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Book Visit
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
