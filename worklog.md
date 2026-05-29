@@ -49,29 +49,39 @@ Stage Summary:
 ---
 Task ID: 7
 Agent: Main Agent
-Task: Step 7 — Collections Section redesign (4 categories, large image cards, hover zoom, gold glow border, minimal titles, responsive grid)
+Task: Step 7 — Collections Section redesign
 
 Work Log:
-- Generated 4 new category images (864x1152 portrait): cat-sofas.png, cat-beds.png, cat-dining-sets.png, cat-office-luxury.png
-- Rebuilt Collections.tsx with:
-  - 4 categories: Sofas, Beds, Dining Sets, Office Luxury
-  - Large portrait image cards (aspect-[3/4]) with rounded-2xl
-  - Soft hover zoom (scale-105, duration-700)
-  - Gold glow border on hover: group-hover:shadow-gold + group-hover:ring-1 group-hover:ring-accent/40
-  - Minimal titles under images (font-playfair, text-xl, text-center, hover:text-accent)
-  - Responsive grid: 1 col (mobile) → 2 cols (tablet sm) → 4 cols (desktop lg)
-  - Clean staggered fade-up entrance animation (0.12s delay between cards)
-  - "View All Collections" gold CTA button at bottom
-- Updated /src/lib/products.ts:
-  - Replaced "Storage" category with "Office" category
-  - Added 2 new Office products: Vienna Executive Desk (€11,200), Munich Office Chair (€6,800)
-  - Updated product images to use new category images (cat-sofas.png, cat-beds.png, cat-dining-sets.png, cat-office-luxury.png)
-  - Updated categories array: All, Seating, Dining, Bedroom, Office, Outdoor
-- Collections card links properly to /collections?cat=Seating, ?cat=Bedroom, ?cat=Dining, ?cat=Office
+- Generated 4 new category images (864x1152 portrait)
+- Rebuilt Collections.tsx with 4 categories (Sofas, Beds, Dining Sets, Office Luxury)
+- Large portrait cards, hover zoom 1.05, gold glow border, minimal titles, responsive 1→2→4 grid
+- Added Office category + 2 products to products.ts
+
+Stage Summary:
+- 4-category grid with hover effects, responsive columns, new Office category
+
+---
+Task ID: 8
+Agent: Main Agent
+Task: Step 8 — Product Showcase redesign (3D tilt, golden glow #c2a46d, smooth scale)
+
+Work Log:
+- Added new shadow tokens to globals.css: --shadow-gold-glow (rgba(194,164,109,0.25/0.12)) and --shadow-gold-glow-lg
+- Added CSS utility classes .shadow-gold-glow and .shadow-gold-glow-lg
+- Completely rebuilt ProductCard.tsx with:
+  - 3D tilt effect: Framer Motion useMotionValue + useSpring + useTransform tracking mouse position
+  - Maps mouse X/Y relative to card → rotateX/rotateY (±6°) with spring physics (stiffness 200, damping 25)
+  - perspective: 800px on container, preserve-3d on tilt wrapper
+  - Smooth scale: group-hover:scale-[1.02] on card, inner image scale-105
+  - Golden glow on hover: shadow-gold-glow using #c2a46d
+  - Gold ring border on hover: ring-1 ring-accent/30
+  - Category badge in top-left corner with backdrop-blur
+  - Serif product name (Playfair Display, text-2xl, hover → gold accent)
+  - Short description with line-clamp-2
+  - Price in minimal style (font-light, tracking-wide, foreground/70)
+  - Entrance: fade-up with staggered 0.1s delay, will-change-transform for GPU
 - Build verified successfully
 
 Stage Summary:
-- 4-category grid: Sofas, Beds, Dining Sets, Office Luxury
-- Large image cards with 1.05 hover zoom + gold glow border
-- Minimal centered titles, responsive 1→2→4 columns
-- New Office category with 2 products added to product data
+- ProductCard: 3D tilt ±6° (spring physics), golden glow #c2a46d shadow, smooth scale 1.02
+- Every product feels premium and collectible

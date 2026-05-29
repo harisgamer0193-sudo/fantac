@@ -108,6 +108,8 @@
   --shadow-soft-lg: 0 8px 24px rgba(60,36,21,0.08), 0 2px 8px rgba(60,36,21,0.04);
   --shadow-soft-xl: 0 16px 48px rgba(60,36,21,0.10), 0 4px 16px rgba(60,36,21,0.05);
   --shadow-gold: 0 4px 16px rgba(201,169,110,0.18);
+  --shadow-gold-glow: 0 8px 32px rgba(194,164,109,0.25), 0 2px 8px rgba(194,164,109,0.12);
+  --shadow-gold-glow-lg: 0 16px 48px rgba(194,164,109,0.30), 0 4px 16px rgba(194,164,109,0.15);
 }
 
 /* ============================================
@@ -380,3 +382,5 @@ img { transition: opacity 0.5s ease; }
 .shadow-soft-lg { box-shadow: var(--shadow-soft-lg); }
 .shadow-soft-xl { box-shadow: var(--shadow-soft-xl); }
 .shadow-gold { box-shadow: var(--shadow-gold); }
+.shadow-gold-glow { box-shadow: var(--shadow-gold-glow); }
+.shadow-gold-glow-lg { box-shadow: var(--shadow-gold-glow-lg); }

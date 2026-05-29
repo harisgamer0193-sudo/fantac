@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRef, MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,57 +23,102 @@ export default function ProductCard({
   price,
   image,
   description,
-  material,
   index = 0,
 }: ProductCardProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-60px" });
+
+  /* ── 3D Tilt: track mouse position ── */
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), {
+    stiffness: 200,
+    damping: 25,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), {
+    stiffness: 200,
+    damping: 25,
+  });
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      ref={containerRef}
+      initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+      transition={{ duration: 0.9, delay: index * 0.1, ease: "easeOut" }}
+      style={{
+        perspective: 800,
+      }}
     >
-      <Link href={`/product/${id}`} className="group block">
-        {/* Image Container */}
-        <div className="relative aspect-[3/4] overflow-hidden rounded-xl mb-5 shadow-soft-sm group-hover:shadow-soft-lg transition-shadow duration-700">
-          <Image
-            src={image}
-            alt={`${name} by Fantac Furnitures`}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            quality={85}
-          />
-          {/* Soft hover overlay */}
-          <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-all duration-500" />
-          {/* Material badge */}
-          {material && (
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className="group will-change-transform"
+      >
+        <Link href={`/product/${id}`} className="block">
+          {/* Image Container */}
+          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl mb-5 shadow-soft-md transition-all duration-700 group-hover:shadow-gold-glow group-hover:scale-[1.02]">
+            <Image
+              src={image}
+              alt={`${name} by Fantac Furnitures`}
+              fill
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              quality={90}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+            {/* Soft golden overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-foreground/0 to-foreground/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Gold ring border on hover */}
+            <div className="absolute inset-0 rounded-2xl ring-1 ring-accent/0 group-hover:ring-accent/30 transition-all duration-700" />
+
+            {/* Category badge */}
             <div className="absolute top-4 left-4">
-              <span className="inline-block px-3 py-1 bg-background/80 backdrop-blur-sm text-foreground text-[10px] tracking-[0.2em] uppercase rounded-lg">
-                {material}
+              <span className="inline-block px-3 py-1.5 bg-background/80 backdrop-blur-sm text-foreground text-[10px] tracking-[0.2em] uppercase rounded-lg shadow-soft-sm">
+                {category}
               </span>
             </div>
-          )}
-        </div>
+          </div>
 
-        {/* Text Content */}
-        <div className="px-1">
-          <p className="text-accent text-[10px] tracking-[0.3em] uppercase mb-1">
-            {category}
-          </p>
-          <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
-            {name}
-          </h3>
-          {description && (
-            <p className="text-muted-foreground text-sm leading-relaxed mb-2 line-clamp-2">
-              {description}
+          {/* Text Content */}
+          <div className="px-1 space-y-2">
+            {/* Product Name — serif, premium */}
+            <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-foreground group-hover:text-accent transition-colors duration-500">
+              {name}
+            </h3>
+
+            {/* Short Description */}
+            {description && (
+              <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                {description}
+              </p>
+            )}
+
+            {/* Price — minimal, refined */}
+            <p className="text-foreground/70 text-base font-light tracking-wide pt-1">
+              {price}
             </p>
-          )}
-          <p className="text-muted-foreground text-sm font-medium">{price}</p>
-        </div>
-      </Link>
+          </div>
+        </Link>
+      </motion.div>
     </motion.div>
   );
 }
