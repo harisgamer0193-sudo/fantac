@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import Collections from "@/components/Collections";
 import ProductCard from "@/components/ProductCard";
 import AboutSection from "@/components/AboutSection";
+import Gallery from "@/components/Gallery";
 import { products } from "@/lib/products";
 
 // Pick 3 featured products for the highlight section
@@ -106,6 +107,9 @@ export default function Home() {
 
       {/* About — Split Screen */}
       <AboutSection />
+
+      {/* Gallery — Masonry Inspiration */}
+      <Gallery />
 
       {/* CTA Section */}
       <section className="py-24 lg:py-32 bg-card">
