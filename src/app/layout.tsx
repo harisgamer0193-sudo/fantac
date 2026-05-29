@@ -61,7 +61,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="pt-20">{children}</main>
+          <main className="pt-20 page-enter">{children}</main>
           <Footer />
           <Toaster />
         </ThemeProvider>

@@ -27,3 +27,29 @@ Stage Summary:
 - All pages use design system tokens (Ivory/Champagne/Gold/Espresso/Charcoal)
 - Navbar: transparent on home hero, solid on all other pages, active link highlighting
 - Footer: Link-based navigation with category filtering support
+
+---
+Task ID: 5
+Agent: Main Agent
+Task: Apply Step 5 — Global Layout Rules (sticky navbar with blur, consistent 8px padding, global ivory background #f6f1ea, smooth page transitions)
+
+Work Log:
+- Updated globals.css: Changed --background from #FAF7F2 to #f6f1ea (new ivory), updated all dependent tokens (primary-foreground, accent-foreground, sidebar-primary-foreground)
+- Added spacing scale tokens (8px base): --spacing-page-x, --spacing-section-y, --spacing-navbar
+- Added page transition animation (@keyframes pageEnter, .page-enter class)
+- Added navbar blur utility (.navbar-blur with backdrop-filter: blur(20px) saturate(180%))
+- Updated Navbar.tsx: Enhanced sticky blur effect using .navbar-blur class, bg-background/80 for semi-transparent blur, removed ThemeToggle dependency
+- Added mobile menu auto-close on route change
+- Updated layout.tsx: Added .page-enter class to main for smooth page transitions
+- Created /components/Collections.tsx: Moved from sections/ with updated links to use actual routes (/collections?cat=...)
+- Updated app/page.tsx: Restructured to use Collections component and ProductCard, removed FeatureStrip import
+- Removed entire /components/sections/ directory (FeatureStrip, Craftsmanship, Showroom, Testimonials, Contact, ThemeToggle)
+- Build verified successfully with all routes
+
+Stage Summary:
+- Global ivory background updated to #f6f1ea
+- Sticky navbar with 20px blur + 180% saturation
+- Smooth page transitions via CSS animation
+- 8px spacing scale tokens added
+- Project restructured to 6 components + 5 pages
+- All old sections removed, clean file structure

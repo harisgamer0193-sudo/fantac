@@ -18,13 +18,19 @@
    │  → shadow-soft-*, dark-section overrides    │
    └─────────────────────────────────────────────┘
    
-   Color Palette (Original):
-   • Background:  #FAF7F2 (Ivory)     → #1A1510 (Espresso Dark)
+   Color Palette (Step 5):
+   • Background:  #f6f1ea (Ivory)     → #1A1510 (Espresso Dark)
    • Text:        #3C2415 (Espresso)   → #EDE5DA (Champagne Light)
    • Muted:       #7A6B5D (Charcoal)  → #9A8E80 (Warm Gray)
    • Gold/Accent: #C9A96E (Gold)      → #D4B87A (Gold Light)
    • Card:        #F5EDE3 (Champagne) → #2A2318 (Dark Brown)
    • Border:      #DDD2C4 (Tan)       → rgba(255,255,255,0.08) (dark)
+   
+   Layout Rules (Step 5):
+   • Sticky navbar with blur effect
+   • Consistent 8px spacing scale
+   • Global ivory background (#f6f1ea)
+   • Smooth page transitions
    ============================================ */
 
 @theme inline {
@@ -112,7 +118,7 @@
   --radius: 0.75rem;
 
   /* Core: Ivory background, Espresso text */
-  --background: #FAF7F2;
+  --background: #f6f1ea;
   --foreground: #3C2415;
 
   /* Card: Champagne */
@@ -124,7 +130,7 @@
 
   /* Primary: Espresso for strong emphasis */
   --primary: #3C2415;
-  --primary-foreground: #FAF7F2;
+  --primary-foreground: #f6f1ea;
 
   /* Secondary: warm neutral tint */
   --secondary: #EDE5DA;
@@ -136,7 +142,7 @@
 
   /* Accent: Gold */
   --accent: #C9A96E;
-  --accent-foreground: #FAF7F2;
+  --accent-foreground: #f6f1ea;
 
   --destructive: #C4564A;
 
@@ -156,7 +162,7 @@
   --sidebar: #EDE5DA;
   --sidebar-foreground: #3C2415;
   --sidebar-primary: #3C2415;
-  --sidebar-primary-foreground: #FAF7F2;
+  --sidebar-primary-foreground: #f6f1ea;
   --sidebar-accent: #DDD2C4;
   --sidebar-accent-foreground: #3C2415;
   --sidebar-border: #DDD2C4;
@@ -221,6 +227,17 @@
 /* ============================================
    BASE STYLES
    ============================================ */
+/* ============================================
+   SPACING SCALE (8px base)
+   ============================================ */
+@theme inline {
+  --spacing-page-x: 2rem;       /* 32px — mobile horizontal page padding */
+  --spacing-page-x-lg: 2rem;    /* 32px — desktop horizontal page padding */
+  --spacing-section-y: 6rem;    /* 96px — vertical section padding */
+  --spacing-section-y-lg: 8rem; /* 128px — large vertical section padding */
+  --spacing-navbar: 5rem;       /* 80px — navbar height */
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -231,6 +248,27 @@
   html {
     scroll-behavior: smooth;
   }
+}
+
+/* ============================================
+   PAGE TRANSITIONS
+   Smooth fade-between for route changes
+   ============================================ */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: pageEnter 0.5s ease-out forwards;
+}
+
+/* ============================================
+   STICKY NAVBAR RULES
+   ============================================ */
+.navbar-blur {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
 /* ============================================

@@ -6,7 +6,6 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/sections/ThemeToggle";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -31,6 +30,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   // For non-home pages, always show solid navbar
   const showSolid = !isHome || scrolled;
 
@@ -42,7 +46,7 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           showSolid
-            ? "bg-background/95 backdrop-blur-md shadow-soft-sm"
+            ? "bg-background/80 navbar-blur shadow-soft-sm"
             : "bg-transparent"
         }`}
       >
@@ -105,8 +109,6 @@ export default function Navbar() {
               );
             })}
 
-            <ThemeToggle />
-
             <Link href="/contact">
               <Button
                 variant="outline"
@@ -121,9 +123,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile: Theme Toggle + Menu */}
+          {/* Mobile: Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className={`p-2 transition-colors duration-500 ${
@@ -145,7 +146,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-foreground/98 backdrop-blur-xl md:hidden dark-section"
+            className="fixed inset-0 z-40 bg-foreground/98 navbar-blur md:hidden dark-section"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link, i) => {

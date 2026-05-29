@@ -1,50 +1,17 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Hero from "@/components/Hero";
-import FeatureStrip from "@/components/sections/FeatureStrip";
+import Collections from "@/components/Collections";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/lib/products";
 
-const testimonials = [
-  {
-    name: "Isabella Marchetti",
-    title: "Interior Architect",
-    location: "Milano, Italy",
-    text: "Fantac is the only brand I specify for my residential projects without hesitation. Their pieces possess an uncommon integrity — structurally flawless and aesthetically timeless.",
-  },
-  {
-    name: "Henrik Sørensen",
-    title: "Private Collector",
-    location: "Copenhagen, Denmark",
-    text: "I discovered Fantac during a trip to Milan seven years ago. The sofa I purchased then looks as if it arrived yesterday — the leather has aged beautifully, the cushions have held their form perfectly.",
-  },
-  {
-    name: "Camille Dubois",
-    title: "Hotel Director",
-    location: "Paris, France",
-    text: "We furnished our entire boutique hotel with Fantac pieces. Three years and thousands of guests later, every item remains impeccable. The combination of Italian sensuality and Scandinavian durability is unmatched.",
-  },
-];
-
-// Pick 3 featured products
+// Pick 3 featured products for the highlight section
 const featuredProducts = products.slice(0, 3);
 
 export default function Home() {
-  const collectionsRef = useRef(null);
-  const isCollectionsInView = useInView(collectionsRef, {
-    once: true,
-    margin: "-80px",
-  });
-  const testimonialsRef = useRef(null);
-  const isTestimonialsInView = useInView(testimonialsRef, {
-    once: true,
-    margin: "-80px",
-  });
-
   return (
     <main className="flex flex-col">
       {/* Hero — full viewport, negate pt-20 from layout */}
@@ -52,44 +19,48 @@ export default function Home() {
         <Hero />
       </div>
 
-      {/* Feature Strip */}
-      <FeatureStrip />
-
       {/* Collections Preview */}
-      <section className="py-24 lg:py-32 bg-card">
-        <div ref={collectionsRef} className="max-w-7xl mx-auto px-8 lg:px-8">
+      <Collections />
+
+      {/* Featured Products Highlight */}
+      <section className="py-24 lg:py-32 bg-background">
+        <div className="max-w-7xl mx-auto px-8 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-20">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={isCollectionsInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="text-accent text-xs tracking-[0.4em] uppercase mb-4"
             >
-              Curated for You
+              Signature Pieces
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
-              animate={isCollectionsInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
               className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-foreground mb-6"
             >
-              Our Collections
+              Featured This Season
             </motion.h2>
             <motion.div
               initial={{ width: 0 }}
-              animate={isCollectionsInView ? { width: "4rem" } : {}}
+              whileInView={{ width: "4rem" }}
+              viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.3 }}
               className="h-[1px] bg-accent mx-auto mb-8"
             />
             <motion.p
               initial={{ opacity: 0 }}
-              animate={isCollectionsInView ? { opacity: 1 } : {}}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-muted-foreground max-w-xl mx-auto leading-relaxed"
             >
-              Each collection is a dialogue between heritage and innovation —
-              European craftsmanship refined through decades.
+              A curated selection of our most beloved pieces — where timeless
+              design meets exceptional craftsmanship.
             </motion.p>
           </div>
 
@@ -129,68 +100,6 @@ export default function Home() {
               />
             </Link>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24 lg:py-32 bg-background">
-        <div ref={testimonialsRef} className="max-w-7xl mx-auto px-8 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-20">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isTestimonialsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="text-accent text-xs tracking-[0.4em] uppercase mb-4"
-            >
-              Voices of Distinction
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isTestimonialsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-foreground mb-6"
-            >
-              What Our Clients Say
-            </motion.h2>
-            <motion.div
-              initial={{ width: 0 }}
-              animate={isTestimonialsInView ? { width: "4rem" } : {}}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="h-[1px] bg-accent mx-auto"
-            />
-          </div>
-
-          {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, i) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isTestimonialsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.7, delay: 0.2 + i * 0.15 }}
-                className="bg-card p-8 lg:p-10 rounded-2xl shadow-soft-sm hover:shadow-soft-md transition-shadow duration-500"
-              >
-                {/* Quote icon */}
-                <div className="text-accent/20 mb-6 text-3xl font-[family-name:var(--font-playfair)]">&ldquo;</div>
-
-                {/* Text */}
-                <p className="text-muted-foreground text-sm leading-relaxed mb-8">
-                  {testimonial.text}
-                </p>
-
-                {/* Author */}
-                <div className="border-t border-border pt-5">
-                  <p className="font-[family-name:var(--font-playfair)] text-foreground font-semibold">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-muted-foreground text-xs mt-1">
-                    {testimonial.title} &middot; {testimonial.location}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
