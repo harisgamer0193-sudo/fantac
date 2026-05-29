@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     ".space-z.ai",
   ],
   images: {
-    qualities: [75, 85, 90],
+    qualities: [60, 75, 85, 90],
   },
 };
 
