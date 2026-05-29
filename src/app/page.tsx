@@ -6,6 +6,7 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import Collections from "@/components/Collections";
 import ProductCard from "@/components/ProductCard";
+import AboutSection from "@/components/AboutSection";
 import { products } from "@/lib/products";
 
 // Pick 3 featured products for the highlight section
@@ -102,6 +103,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* About — Split Screen */}
+      <AboutSection />
 
       {/* CTA Section */}
       <section className="py-24 lg:py-32 bg-card">

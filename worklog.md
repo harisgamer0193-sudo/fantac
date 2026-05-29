@@ -85,3 +85,28 @@ Work Log:
 Stage Summary:
 - ProductCard: 3D tilt ±6° (spring physics), golden glow #c2a46d shadow, smooth scale 1.02
 - Every product feels premium and collectible
+
+---
+Task ID: 9
+Agent: Main Agent
+Task: Step 9 — About Section (split screen, fade-in, subtle texture)
+
+Work Log:
+- Generated luxury workshop interior image (about-workshop.png, 864x1152)
+- Created /src/components/AboutSection.tsx with:
+  - Split-screen layout: left = workshop image, right = text content
+  - Left: Full-bleed image with warm gradient overlay, floating "Est. 1987" badge, decorative gold line
+  - Right: Champagne card bg with "Our Philosophy" label, "The Art of Living Elegantly" heading (serif, italic accent on "Elegantly")
+  - Two rich paragraphs about craftsmanship philosophy
+  - "Read Our Story" CTA with underline reveal animation + arrow icon
+  - Soft fade-in on scroll: left slides from -60px, right slides from +60px, staggered delays
+  - Subtle texture background: marble/wood grain using layered CSS radial + repeating-linear gradients at 3% opacity
+  - Inner card texture: 45deg diagonal hatching at 2.5% opacity
+  - Responsive: stacked on mobile, side-by-side on desktop (lg:grid-cols-2)
+  - Rounded corners: image rounds left side, text rounds right side on desktop
+- Integrated AboutSection into home page (page.tsx) between Featured Products and CTA section
+- Build verified successfully
+
+Stage Summary:
+- Split-screen About section with luxury workshop image, "The Art of Living Elegantly" heading
+- Fade-in scroll animations, subtle marble/wood grain texture, responsive layout
