@@ -14,7 +14,7 @@ export const products: Product[] = [
     name: "Milano Sofa",
     category: "Seating",
     price: "€8,900",
-    image: "/collection-seating.png",
+    image: "/cat-sofas.png",
     description:
       "Hand-tufted Italian leather sofa with solid walnut base. The Milano embodies the essence of refined Italian living — generous proportions, supple full-grain leather, and a silhouette that commands any room.",
     material: "Full-grain leather, Walnut",
@@ -24,7 +24,7 @@ export const products: Product[] = [
     name: "Copenhagen Armchair",
     category: "Seating",
     price: "€4,200",
-    image: "/collection-seating.png",
+    image: "/cat-sofas.png",
     description:
       "Bouclé upholstered armchair with brushed brass legs. Scandinavian comfort meets Italian elegance in a piece that invites you to linger.",
     material: "Bouclé, Brass",
@@ -34,7 +34,7 @@ export const products: Product[] = [
     name: "Toscana Dining Table",
     category: "Dining",
     price: "€12,500",
-    image: "/collection-dining.png",
+    image: "/cat-dining-sets.png",
     description:
       "Solid oak dining table with Carrara marble inlay. A centerpiece for gatherings that matter, where the warmth of oak meets the cool elegance of marble.",
     material: "European Oak, Marble",
@@ -44,7 +44,7 @@ export const products: Product[] = [
     name: "Paris Dining Chair",
     category: "Dining",
     price: "€2,800",
-    image: "/collection-dining.png",
+    image: "/cat-dining-sets.png",
     description:
       "Upholstered dining chair with curved beechwood frame. The gentle curve of the backrest cradles you through long, laughter-filled evenings.",
     material: "Beechwood, Velvet",
@@ -54,7 +54,7 @@ export const products: Product[] = [
     name: "Firenze King Bed",
     category: "Bedroom",
     price: "€9,600",
-    image: "/collection-bedroom.png",
+    image: "/cat-beds.png",
     description:
       "Upholstered platform bed with channel-tufted headboard. Transform your bedroom into a sanctuary of serenity with this statement piece.",
     material: "Linen, Oak",
@@ -64,30 +64,30 @@ export const products: Product[] = [
     name: "Stockholm Dresser",
     category: "Bedroom",
     price: "€5,400",
-    image: "/collection-bedroom.png",
+    image: "/cat-beds.png",
     description:
       "Six-drawer dresser in ash wood with soft-close mechanisms. Scandinavian precision in every joint, Italian sensuality in every curve.",
     material: "Ash Wood",
   },
   {
-    id: "berlin-shelf",
-    name: "Berlin Shelving System",
-    category: "Storage",
-    price: "€6,200",
-    image: "/collection-storage.png",
+    id: "vienna-desk",
+    name: "Vienna Executive Desk",
+    category: "Office",
+    price: "€11,200",
+    image: "/cat-office-luxury.png",
     description:
-      "Modular wall-mounted shelving in light oak and brushed steel. Architectural storage that transforms your wall into a gallery of living.",
-    material: "Oak, Steel",
+      "Walnut executive desk with leather-inlaid top and brushed brass hardware. Command your workspace with a piece that exudes authority and refinement in equal measure.",
+    material: "Walnut, Leather, Brass",
   },
   {
-    id: "zurich-cabinet",
-    name: "Zurich Display Cabinet",
-    category: "Storage",
-    price: "€7,800",
-    image: "/collection-storage.png",
+    id: "munich-chair",
+    name: "Munich Office Chair",
+    category: "Office",
+    price: "€6,800",
+    image: "/cat-office-luxury.png",
     description:
-      "Glass-front cabinet with interior LED lighting. Showcase your most treasured possessions in a piece that's itself a work of art.",
-    material: "Walnut, Glass",
+      "Tufted leather office chair with ergonomic design and swivel base. Where the tradition of Italian leatherwork meets the demands of the modern executive.",
+    material: "Full-grain leather, Steel",
   },
   {
     id: "amalfi-lounge",
@@ -116,7 +116,7 @@ export const categories = [
   "Seating",
   "Dining",
   "Bedroom",
-  "Storage",
+  "Office",
   "Outdoor",
 ] as const;
 

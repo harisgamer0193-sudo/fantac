@@ -8,39 +8,25 @@ Task: Restructure Fantac Furnitures from single-page to multi-page architecture
 Work Log:
 - Updated layout.tsx to include Navbar + Footer as persistent layout elements with pt-20 for fixed navbar
 - Moved Navbar.tsx, Hero.tsx, Footer.tsx to /src/components/ (top level)
-- Updated Navbar with Next.js Link navigation, usePathname active highlighting, multi-page routes (Home, Collections, About, Contact)
-- Updated Footer with Link-based navigation using real routes (/collections?cat=*, /about, /contact)
+- Updated Navbar with Next.js Link navigation, usePathname active highlighting, multi-page routes
 - Created /src/lib/products.ts — shared product data with 10 products, 6 categories, helper functions
-- Created /src/components/ProductCard.tsx — reusable product card with hover zoom, material badge, Link to /product/[id]
-- Created /src/components/Gallery.tsx — image gallery with main image + thumbnail strip, AnimatePresence transitions
-- Created /src/app/collections/page.tsx + CollectionsPageClient.tsx — filter tabs, ProductCard grid, URL ?cat= support
-- Created /src/app/product/[id]/page.tsx + ProductPageClient.tsx — Gallery, 60/40 layout, related products, generateStaticParams
-- Created /src/app/about/page.tsx + AboutPageClient.tsx — hero banner, brand story, stats, values, showroom dark-section
-- Created /src/app/contact/page.tsx + ContactPageClient.tsx — contact form, service cards, showroom info, newsletter
-- Updated home page.tsx — simplified landing with Hero, FeatureStrip, 3 featured products, Testimonials, CTA section
-- Build verified successfully — all 5 routes + 10 product pages compile
+- Created /src/components/ProductCard.tsx, Gallery.tsx, Collections.tsx
+- Created all page routes: /, /collections, /product/[id], /about, /contact
+- Build verified successfully
 
 Stage Summary:
 - Project restructured from single-page to 5-page multi-page architecture
-- New routes: / (Home), /collections, /product/[id], /about, /contact
-- Shared product data system in /src/lib/products.ts
-- All pages use design system tokens (Ivory/Champagne/Gold/Espresso/Charcoal)
-- Navbar: transparent on home hero, solid on all other pages, active link highlighting
-- Footer: Link-based navigation with category filtering support
+- Shared product data system, all pages use design system tokens
 
 ---
 Task ID: 5
 Agent: Main Agent
-Task: Apply Step 5 — Global Layout Rules (sticky navbar with blur, consistent 8px padding, global ivory background #f6f1ea, smooth page transitions)
+Task: Apply Step 5 — Global Layout Rules
 
 Work Log:
-- Updated globals.css: Changed --background from #FAF7F2 to #f6f1ea (new ivory), updated all dependent tokens
-- Added spacing scale tokens (8px base): --spacing-page-x, --spacing-section-y, --spacing-navbar
-- Added page transition animation (@keyframes pageEnter, .page-enter class)
-- Added navbar blur utility (.navbar-blur with backdrop-filter: blur(20px) saturate(180%))
+- Updated globals.css: Changed --background to #f6f1ea, added spacing scale tokens, page transitions, navbar blur
 - Updated Navbar.tsx: Enhanced sticky blur, removed ThemeToggle dependency
-- Created /components/Collections.tsx, removed /components/sections/ directory
-- Build verified successfully
+- Removed /components/sections/ directory
 
 Stage Summary:
 - Global ivory background #f6f1ea, sticky navbar with blur, 8px spacing scale, smooth page transitions
@@ -48,29 +34,44 @@ Stage Summary:
 ---
 Task ID: 6
 Agent: Main Agent
-Task: Step 6 — Hero Section redesign (fullscreen cinematic, center-aligned, new content, parallax + zoom + fade-up)
+Task: Step 6 — Hero Section redesign
 
 Work Log:
-- Generated new cinematic luxury interior hero image (hero-cinematic.png, 1344x768) via z-ai-generate
-- Completely rebuilt Hero.tsx with:
-  - Fullscreen cinematic background using new hero-cinematic.png image
-  - Dark soft overlay: multi-layer gradient (from-warm-950/50 via-warm-950/40 to-warm-950/65) + radial vignette
-  - Center-aligned text layout (flex items-center justify-center text-center)
-  - New content: "Fantac Furnitures" (h1 with gold-light italic) + "Crafted Elegance. Timeless Living." (tagline)
-  - Two CTA buttons: "Explore Collection" (gold/accent, links to /collections) + "Discover Designs" (glass/white, links to /about)
-  - Fade-up text animations using Framer Motion variants with staggered delays (0.5s, 0.8s, 1.4s)
-  - Slow zoom background: useScroll + useTransform for scale(1 → 1.12) as user scrolls
-  - Smooth parallax scroll effect: background image moves at 25% speed, text at 15% speed
-  - Overlay opacity fades from 1 → 0.4 on scroll for dramatic reveal
-  - Decorative gold accent lines (top/bottom) with scale-expand animation
-  - Subtle scroll indicator at bottom
-  - Bottom gradient fade (h-32 from-background to-transparent) for seamless content transition
-- Home page (page.tsx) maintained with Hero + Collections + Featured + CTA structure
-- Build verified successfully — all 17 routes compile
+- Generated cinematic hero image (hero-cinematic.png, 1344x768)
+- Rebuilt Hero.tsx: fullscreen cinematic, center-aligned, "Fantac Furnitures" + "Crafted Elegance. Timeless Living."
+- Fade-up text, slow zoom background (scale 1→1.12), parallax scroll, dark overlay + vignette
+- "Explore Collection" + "Discover Designs" CTA buttons
+- Bottom gradient fade for seamless transition
 
 Stage Summary:
-- New cinematic Hero with fullscreen layout, center-aligned brand + tagline
-- Three animation layers: fade-up text, slow zoom background (scale 1→1.12), parallax scroll (25%/15% speeds)
-- Dark soft overlay with vignette for readability
-- "Explore Collection" + "Discover Designs" CTA buttons
-- Seamless bottom fade into page content
+- Cinematic Hero with 3-layer animations, center-aligned content, new tagline
+
+---
+Task ID: 7
+Agent: Main Agent
+Task: Step 7 — Collections Section redesign (4 categories, large image cards, hover zoom, gold glow border, minimal titles, responsive grid)
+
+Work Log:
+- Generated 4 new category images (864x1152 portrait): cat-sofas.png, cat-beds.png, cat-dining-sets.png, cat-office-luxury.png
+- Rebuilt Collections.tsx with:
+  - 4 categories: Sofas, Beds, Dining Sets, Office Luxury
+  - Large portrait image cards (aspect-[3/4]) with rounded-2xl
+  - Soft hover zoom (scale-105, duration-700)
+  - Gold glow border on hover: group-hover:shadow-gold + group-hover:ring-1 group-hover:ring-accent/40
+  - Minimal titles under images (font-playfair, text-xl, text-center, hover:text-accent)
+  - Responsive grid: 1 col (mobile) → 2 cols (tablet sm) → 4 cols (desktop lg)
+  - Clean staggered fade-up entrance animation (0.12s delay between cards)
+  - "View All Collections" gold CTA button at bottom
+- Updated /src/lib/products.ts:
+  - Replaced "Storage" category with "Office" category
+  - Added 2 new Office products: Vienna Executive Desk (€11,200), Munich Office Chair (€6,800)
+  - Updated product images to use new category images (cat-sofas.png, cat-beds.png, cat-dining-sets.png, cat-office-luxury.png)
+  - Updated categories array: All, Seating, Dining, Bedroom, Office, Outdoor
+- Collections card links properly to /collections?cat=Seating, ?cat=Bedroom, ?cat=Dining, ?cat=Office
+- Build verified successfully
+
+Stage Summary:
+- 4-category grid: Sofas, Beds, Dining Sets, Office Luxury
+- Large image cards with 1.05 hover zoom + gold glow border
+- Minimal centered titles, responsive 1→2→4 columns
+- New Office category with 2 products added to product data
