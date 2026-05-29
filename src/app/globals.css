@@ -18,13 +18,13 @@
    │  → shadow-soft-*, dark-section overrides    │
    └─────────────────────────────────────────────┘
    
-   Color Palette:
-   • Background:  #f7f3ee (light)  → #1c1915 (dark)
-   • Text:        #1a1a1a (light)  → #e8e2da (dark)
-   • Muted:       #6b6b6b (light)  → #9a928a (dark)
-   • Gold/Accent: #b89b76 (both)   → #c9ac86 (dark hover)
-   • Card:        #ffffff (light)  → #292520 (dark)
-   • Border:      #e2d9cc (light)  → rgba(255,255,255,0.08) (dark)
+   Color Palette (Original):
+   • Background:  #FAF7F2 (Ivory)     → #1A1510 (Espresso Dark)
+   • Text:        #3C2415 (Espresso)   → #EDE5DA (Champagne Light)
+   • Muted:       #7A6B5D (Charcoal)  → #9A8E80 (Warm Gray)
+   • Gold/Accent: #C9A96E (Gold)      → #D4B87A (Gold Light)
+   • Card:        #F5EDE3 (Champagne) → #2A2318 (Dark Brown)
+   • Border:      #DDD2C4 (Tan)       → rgba(255,255,255,0.08) (dark)
    ============================================ */
 
 @theme inline {
@@ -71,149 +71,151 @@
   --radius-2xl: calc(var(--radius) + 8px);
 
   /* ── Brand Primitives (static, never swap) ── */
-  --color-gold: #b89b76;
-  --color-gold-light: #c9ac86;
-  --color-gold-lighter: #dbc4a6;
-  --color-gold-dark: #a08660;
-  --color-gold-soft: #e8ddd0;
+  --color-gold: #C9A96E;
+  --color-gold-light: #D4B87A;
+  --color-gold-lighter: #E3CFA0;
+  --color-gold-dark: #A88B50;
+  --color-gold-soft: #F0E5D0;
 
   /* ── Warm Scale (for gradients, decorative, image overlays) ── */
-  --color-warm-50: #faf7f2;
-  --color-warm-100: #f0ebe3;
-  --color-warm-200: #e2d9cc;
-  --color-warm-300: #d1c4b0;
-  --color-warm-400: #c4a07a;
-  --color-warm-500: #b89b76;
-  --color-warm-600: #a08660;
-  --color-warm-700: #7d6a4f;
-  --color-warm-800: #5c4d3a;
-  --color-warm-900: #3d3228;
-  --color-warm-950: #2a2520;
+  --color-warm-50: #FDFBF8;
+  --color-warm-100: #F5EDE3;
+  --color-warm-200: #E8D9C8;
+  --color-warm-300: #D4C4AD;
+  --color-warm-400: #C9A96E;
+  --color-warm-500: #B89858;
+  --color-warm-600: #9A7E45;
+  --color-warm-700: #7D6538;
+  --color-warm-800: #5C4A2A;
+  --color-warm-900: #3C2415;
+  --color-warm-950: #2A1A0E;
 
   /* ── Dark Section Tokens (for Showroom/Footer — always-dark sections) ── */
-  --color-section-dark: #2a2520;
-  --color-section-dark-lighter: #3d3630;
-  --color-section-dark-text: #e8e2da;
-  --color-section-dark-muted: #9a928a;
+  --color-section-dark: #2A1A0E;
+  --color-section-dark-lighter: #3C2D1F;
+  --color-section-dark-text: #EDE5DA;
+  --color-section-dark-muted: #9A8E80;
 
   /* ── Soft Shadow Tokens ── */
-  --shadow-soft-sm: 0 1px 3px rgba(26,26,26,0.04), 0 1px 2px rgba(26,26,26,0.02);
-  --shadow-soft-md: 0 4px 12px rgba(26,26,26,0.06), 0 1px 4px rgba(26,26,26,0.03);
-  --shadow-soft-lg: 0 8px 24px rgba(26,26,26,0.08), 0 2px 8px rgba(26,26,26,0.04);
-  --shadow-soft-xl: 0 16px 48px rgba(26,26,26,0.10), 0 4px 16px rgba(26,26,26,0.05);
-  --shadow-gold: 0 4px 16px rgba(184,155,118,0.15);
+  --shadow-soft-sm: 0 1px 3px rgba(60,36,21,0.04), 0 1px 2px rgba(60,36,21,0.02);
+  --shadow-soft-md: 0 4px 12px rgba(60,36,21,0.06), 0 1px 4px rgba(60,36,21,0.03);
+  --shadow-soft-lg: 0 8px 24px rgba(60,36,21,0.08), 0 2px 8px rgba(60,36,21,0.04);
+  --shadow-soft-xl: 0 16px 48px rgba(60,36,21,0.10), 0 4px 16px rgba(60,36,21,0.05);
+  --shadow-gold: 0 4px 16px rgba(201,169,110,0.18);
 }
 
 /* ============================================
    LIGHT THEME (default)
+   Palette: Ivory, Champagne, Gold, Espresso, Charcoal
    ============================================ */
 :root {
   --radius: 0.75rem;
 
-  /* Core: Background #f7f3ee, Text #1a1a1a */
-  --background: #f7f3ee;
-  --foreground: #1a1a1a;
+  /* Core: Ivory background, Espresso text */
+  --background: #FAF7F2;
+  --foreground: #3C2415;
 
-  /* Card: #ffffff */
-  --card: #ffffff;
-  --card-foreground: #1a1a1a;
+  /* Card: Champagne */
+  --card: #F5EDE3;
+  --card-foreground: #3C2415;
 
-  --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
+  --popover: #F5EDE3;
+  --popover-foreground: #3C2415;
 
-  /* Primary: deep warm brown for strong emphasis */
-  --primary: #3d3228;
-  --primary-foreground: #f7f3ee;
+  /* Primary: Espresso for strong emphasis */
+  --primary: #3C2415;
+  --primary-foreground: #FAF7F2;
 
-  /* Secondary: subtle warm tint for lighter emphasis */
-  --secondary: #f0ebe3;
-  --secondary-foreground: #3d3228;
+  /* Secondary: warm neutral tint */
+  --secondary: #EDE5DA;
+  --secondary-foreground: #3C2415;
 
-  /* Muted: #6b6b6b text, #f0ebe3 bg */
-  --muted: #f0ebe3;
-  --muted-foreground: #6b6b6b;
+  /* Muted: Charcoal text, warm neutral bg */
+  --muted: #EDE5DA;
+  --muted-foreground: #7A6B5D;
 
-  /* Accent: Gold #b89b76 */
-  --accent: #b89b76;
-  --accent-foreground: #ffffff;
+  /* Accent: Gold */
+  --accent: #C9A96E;
+  --accent-foreground: #FAF7F2;
 
-  --destructive: #d4564e;
+  --destructive: #C4564A;
 
-  /* Border: #e2d9cc — soft warm divider */
-  --border: #e2d9cc;
-  --input: #e2d9cc;
-  --ring: #b89b76;
+  /* Border: warm tan divider */
+  --border: #DDD2C4;
+  --input: #DDD2C4;
+  --ring: #C9A96E;
 
   /* Charts */
-  --chart-1: #b89b76;
-  --chart-2: #7d6a4f;
-  --chart-3: #5c4d3a;
-  --chart-4: #dbc4a6;
-  --chart-5: #3d3228;
+  --chart-1: #C9A96E;
+  --chart-2: #9A7E45;
+  --chart-3: #5C4A2A;
+  --chart-4: #E3CFA0;
+  --chart-5: #3C2415;
 
-  /* Sidebar (maps to same warm system) */
-  --sidebar: #f0ebe3;
-  --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: #3d3228;
-  --sidebar-primary-foreground: #f7f3ee;
-  --sidebar-accent: #e2d9cc;
-  --sidebar-accent-foreground: #3d3228;
-  --sidebar-border: #e2d9cc;
-  --sidebar-ring: #b89b76;
+  /* Sidebar */
+  --sidebar: #EDE5DA;
+  --sidebar-foreground: #3C2415;
+  --sidebar-primary: #3C2415;
+  --sidebar-primary-foreground: #FAF7F2;
+  --sidebar-accent: #DDD2C4;
+  --sidebar-accent-foreground: #3C2415;
+  --sidebar-border: #DDD2C4;
+  --sidebar-ring: #C9A96E;
 }
 
 /* ============================================
    DARK THEME
+   Palette: Espresso Dark, Champagne Light, Gold Light
    ============================================ */
 .dark {
-  /* Core: Deep warm dark #1c1915, Soft cream text #e8e2da */
-  --background: #1c1915;
-  --foreground: #e8e2da;
+  /* Core: Deep espresso dark, Champagne light text */
+  --background: #1A1510;
+  --foreground: #EDE5DA;
 
-  /* Card: Slightly lighter dark #292520 */
-  --card: #292520;
-  --card-foreground: #e8e2da;
+  /* Card: Dark brown */
+  --card: #2A2318;
+  --card-foreground: #EDE5DA;
 
-  --popover: #292520;
-  --popover-foreground: #e8e2da;
+  --popover: #2A2318;
+  --popover-foreground: #EDE5DA;
 
-  /* Primary: Gold accent becomes primary in dark */
-  --primary: #c9ac86;
-  --primary-foreground: #1c1915;
+  /* Primary: Gold Light becomes primary in dark */
+  --primary: #D4B87A;
+  --primary-foreground: #1A1510;
 
   /* Secondary */
-  --secondary: #3d3630;
-  --secondary-foreground: #e8e2da;
+  --secondary: #352D22;
+  --secondary-foreground: #EDE5DA;
 
   /* Muted */
-  --muted: #3d3630;
-  --muted-foreground: #9a928a;
+  --muted: #352D22;
+  --muted-foreground: #9A8E80;
 
-  /* Accent: Gold stays gold, slightly brighter */
-  --accent: #c9ac86;
-  --accent-foreground: #1c1915;
+  /* Accent: Gold stays, slightly brighter */
+  --accent: #D4B87A;
+  --accent-foreground: #1A1510;
 
-  --destructive: #e87068;
+  --destructive: #D86860;
 
-  /* Border: Very subtle warm light */
+  /* Border */
   --border: rgba(255,255,255,0.08);
   --input: rgba(255,255,255,0.10);
-  --ring: #c9ac86;
+  --ring: #D4B87A;
 
-  --chart-1: #c9ac86;
-  --chart-2: #9a928a;
-  --chart-3: #7d6a4f;
-  --chart-4: #e8ddd0;
-  --chart-5: #e8e2da;
+  --chart-1: #D4B87A;
+  --chart-2: #9A8E80;
+  --chart-3: #7D6538;
+  --chart-4: #F0E5D0;
+  --chart-5: #EDE5DA;
 
-  --sidebar: #292520;
-  --sidebar-foreground: #e8e2da;
-  --sidebar-primary: #c9ac86;
-  --sidebar-primary-foreground: #1c1915;
-  --sidebar-accent: #3d3630;
-  --sidebar-accent-foreground: #e8e2da;
+  --sidebar: #2A2318;
+  --sidebar-foreground: #EDE5DA;
+  --sidebar-primary: #D4B87A;
+  --sidebar-primary-foreground: #1A1510;
+  --sidebar-accent: #352D22;
+  --sidebar-accent-foreground: #EDE5DA;
   --sidebar-border: rgba(255,255,255,0.08);
-  --sidebar-ring: #c9ac86;
+  --sidebar-ring: #D4B87A;
 }
 
 /* ============================================
@@ -235,7 +237,7 @@
    SOFT UI UTILITIES
    ============================================ */
 
-/* Scrollbar — adapts to theme */
+/* Scrollbar — Ivory/Gold theme */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--color-gold-light); border-radius: 3px; }
@@ -247,8 +249,8 @@
   color: var(--color-warm-950);
 }
 .dark ::selection {
-  background: rgba(184,155,118,0.25);
-  color: #e8e2da;
+  background: rgba(201,169,110,0.25);
+  color: #EDE5DA;
 }
 
 /* Smooth image rendering */
@@ -262,15 +264,15 @@ img { transition: opacity 0.5s ease; }
    Overrides semantic tokens locally.
    ============================================ */
 .dark-section {
-  --background: #2a2520;
-  --foreground: #e8e2da;
-  --card: #3d3630;
-  --card-foreground: #e8e2da;
-  --muted: #3d3630;
-  --muted-foreground: #9a928a;
+  --background: #2A1A0E;
+  --foreground: #EDE5DA;
+  --card: #3C2D1F;
+  --card-foreground: #EDE5DA;
+  --muted: #3C2D1F;
+  --muted-foreground: #9A8E80;
   --border: rgba(255,255,255,0.06);
-  --secondary: #3d3630;
-  --secondary-foreground: #e8e2da;
+  --secondary: #3C2D1F;
+  --secondary-foreground: #EDE5DA;
 }
 
 /* ============================================

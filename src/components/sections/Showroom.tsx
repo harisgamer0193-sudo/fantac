@@ -19,7 +19,7 @@ export default function Showroom() {
           className="w-full h-full"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 25% 25%, rgba(184,155,118,0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(184,155,118,0.2) 0%, transparent 50%)",
+              "radial-gradient(circle at 25% 25%, rgba(201,169,110,0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(201,169,110,0.2) 0%, transparent 50%)",
           }}
         />
       </div>
