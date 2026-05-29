@@ -14,7 +14,7 @@ const featuredProducts = products.slice(0, 3);
 export default function Home() {
   return (
     <main className="flex flex-col">
-      {/* Hero — full viewport, negate pt-20 from layout */}
+      {/* Hero — full viewport cinematic, negate pt-20 from layout */}
       <div className="-mt-20">
         <Hero />
       </div>

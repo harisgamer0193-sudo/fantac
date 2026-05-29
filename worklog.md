@@ -34,22 +34,43 @@ Agent: Main Agent
 Task: Apply Step 5 — Global Layout Rules (sticky navbar with blur, consistent 8px padding, global ivory background #f6f1ea, smooth page transitions)
 
 Work Log:
-- Updated globals.css: Changed --background from #FAF7F2 to #f6f1ea (new ivory), updated all dependent tokens (primary-foreground, accent-foreground, sidebar-primary-foreground)
+- Updated globals.css: Changed --background from #FAF7F2 to #f6f1ea (new ivory), updated all dependent tokens
 - Added spacing scale tokens (8px base): --spacing-page-x, --spacing-section-y, --spacing-navbar
 - Added page transition animation (@keyframes pageEnter, .page-enter class)
 - Added navbar blur utility (.navbar-blur with backdrop-filter: blur(20px) saturate(180%))
-- Updated Navbar.tsx: Enhanced sticky blur effect using .navbar-blur class, bg-background/80 for semi-transparent blur, removed ThemeToggle dependency
-- Added mobile menu auto-close on route change
-- Updated layout.tsx: Added .page-enter class to main for smooth page transitions
-- Created /components/Collections.tsx: Moved from sections/ with updated links to use actual routes (/collections?cat=...)
-- Updated app/page.tsx: Restructured to use Collections component and ProductCard, removed FeatureStrip import
-- Removed entire /components/sections/ directory (FeatureStrip, Craftsmanship, Showroom, Testimonials, Contact, ThemeToggle)
-- Build verified successfully with all routes
+- Updated Navbar.tsx: Enhanced sticky blur, removed ThemeToggle dependency
+- Created /components/Collections.tsx, removed /components/sections/ directory
+- Build verified successfully
 
 Stage Summary:
-- Global ivory background updated to #f6f1ea
-- Sticky navbar with 20px blur + 180% saturation
-- Smooth page transitions via CSS animation
-- 8px spacing scale tokens added
-- Project restructured to 6 components + 5 pages
-- All old sections removed, clean file structure
+- Global ivory background #f6f1ea, sticky navbar with blur, 8px spacing scale, smooth page transitions
+
+---
+Task ID: 6
+Agent: Main Agent
+Task: Step 6 — Hero Section redesign (fullscreen cinematic, center-aligned, new content, parallax + zoom + fade-up)
+
+Work Log:
+- Generated new cinematic luxury interior hero image (hero-cinematic.png, 1344x768) via z-ai-generate
+- Completely rebuilt Hero.tsx with:
+  - Fullscreen cinematic background using new hero-cinematic.png image
+  - Dark soft overlay: multi-layer gradient (from-warm-950/50 via-warm-950/40 to-warm-950/65) + radial vignette
+  - Center-aligned text layout (flex items-center justify-center text-center)
+  - New content: "Fantac Furnitures" (h1 with gold-light italic) + "Crafted Elegance. Timeless Living." (tagline)
+  - Two CTA buttons: "Explore Collection" (gold/accent, links to /collections) + "Discover Designs" (glass/white, links to /about)
+  - Fade-up text animations using Framer Motion variants with staggered delays (0.5s, 0.8s, 1.4s)
+  - Slow zoom background: useScroll + useTransform for scale(1 → 1.12) as user scrolls
+  - Smooth parallax scroll effect: background image moves at 25% speed, text at 15% speed
+  - Overlay opacity fades from 1 → 0.4 on scroll for dramatic reveal
+  - Decorative gold accent lines (top/bottom) with scale-expand animation
+  - Subtle scroll indicator at bottom
+  - Bottom gradient fade (h-32 from-background to-transparent) for seamless content transition
+- Home page (page.tsx) maintained with Hero + Collections + Featured + CTA structure
+- Build verified successfully — all 17 routes compile
+
+Stage Summary:
+- New cinematic Hero with fullscreen layout, center-aligned brand + tagline
+- Three animation layers: fade-up text, slow zoom background (scale 1→1.12), parallax scroll (25%/15% speeds)
+- Dark soft overlay with vignette for readability
+- "Explore Collection" + "Discover Designs" CTA buttons
+- Seamless bottom fade into page content
