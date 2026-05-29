@@ -32,23 +32,23 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           scrolled
-            ? "bg-background/95 backdrop-blur-md shadow-[0_1px_0_rgba(201,169,110,0.15)]"
+            ? "bg-brand-bg/95 backdrop-blur-md shadow-soft-sm"
             : "bg-transparent"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-8 lg:px-8 h-20 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <div
-              className={`w-10 h-10 rounded-sm flex items-center justify-center transition-all duration-500 ${
+              className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-500 ${
                 scrolled
-                  ? "bg-espresso"
-                  : "bg-white/10 backdrop-blur-sm border border-white/20"
+                  ? "bg-warm-dark shadow-soft-sm"
+                  : "bg-white/10 backdrop-blur-sm"
               }`}
             >
               <span
                 className={`font-[family-name:var(--font-playfair)] text-xl font-bold transition-colors duration-500 ${
-                  scrolled ? "text-gold" : "text-white"
+                  scrolled ? "text-brand-gold" : "text-white"
                 }`}
               >
                 F
@@ -57,14 +57,14 @@ export default function Navbar() {
             <div className="flex flex-col">
               <span
                 className={`font-[family-name:var(--font-playfair)] text-lg font-semibold tracking-wide transition-colors duration-500 ${
-                  scrolled ? "text-espresso" : "text-white"
+                  scrolled ? "text-brand-text" : "text-white"
                 }`}
               >
                 FANTAC
               </span>
               <span
                 className={`text-[10px] tracking-[0.3em] uppercase transition-colors duration-500 ${
-                  scrolled ? "text-warm-500" : "text-white/60"
+                  scrolled ? "text-brand-muted" : "text-white/60"
                 }`}
               >
                 Furnitures
@@ -80,7 +80,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-sm tracking-[0.15em] uppercase elegant-hover transition-colors duration-500 ${
                   scrolled
-                    ? "text-charcoal-700 hover:text-espresso"
+                    ? "text-brand-text/70 hover:text-brand-text"
                     : "text-white/80 hover:text-white"
                 }`}
               >
@@ -89,10 +89,10 @@ export default function Navbar() {
             ))}
             <Button
               variant="outline"
-              className={`rounded-none px-6 text-xs tracking-[0.15em] uppercase transition-all duration-500 ${
+              className={`rounded-lg px-6 text-xs tracking-[0.15em] uppercase transition-all duration-500 ${
                 scrolled
-                  ? "border-espresso text-espresso hover:bg-espresso hover:text-ivory"
-                  : "border-white/40 text-white hover:bg-white/10 hover:border-white/60"
+                  ? "border-brand-text/20 text-brand-text hover:bg-brand-text hover:text-brand-bg"
+                  : "border-white/25 text-white hover:bg-white/10 hover:border-white/40"
               }`}
             >
               Book Visit
@@ -103,7 +103,7 @@ export default function Navbar() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className={`md:hidden p-2 transition-colors duration-500 ${
-              scrolled ? "text-espresso" : "text-white"
+              scrolled ? "text-brand-text" : "text-white"
             }`}
             aria-label="Toggle menu"
           >
@@ -120,7 +120,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-espresso/98 backdrop-blur-lg md:hidden"
+            className="fixed inset-0 z-40 bg-warm-dark/98 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link, i) => (
@@ -131,7 +131,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 + 0.2 }}
-                  className="font-[family-name:var(--font-playfair)] text-3xl text-ivory/90 hover:text-gold transition-colors"
+                  className="font-[family-name:var(--font-playfair)] text-3xl text-warm-dark-text hover:text-brand-gold transition-colors"
                 >
                   {link.label}
                 </motion.a>
@@ -143,7 +143,7 @@ export default function Navbar() {
               >
                 <Button
                   variant="outline"
-                  className="rounded-none px-8 py-3 text-sm tracking-[0.15em] uppercase border-gold/50 text-gold hover:bg-gold/10 hover:border-gold mt-4"
+                  className="rounded-lg px-8 py-3 text-sm tracking-[0.15em] uppercase border-brand-gold/40 text-brand-gold hover:bg-brand-gold/10 hover:border-brand-gold mt-4"
                   onClick={() => setMobileOpen(false)}
                 >
                   Book Visit
