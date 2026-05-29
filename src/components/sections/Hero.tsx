@@ -17,9 +17,9 @@ export default function Hero() {
           priority
           quality={90}
         />
-        {/* Soft warm gradient overlays — no harshness */}
-        <div className="absolute inset-0 bg-gradient-to-r from-warm-dark/60 via-warm-dark/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-warm-dark/50 via-transparent to-warm-dark/15" />
+        {/* Soft warm gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-warm-950/60 via-warm-950/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-warm-950/50 via-transparent to-warm-950/15" />
       </div>
 
       {/* Content */}
@@ -30,7 +30,7 @@ export default function Hero() {
             initial={{ width: 0 }}
             animate={{ width: "4rem" }}
             transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-            className="h-[1px] bg-brand-gold mb-8"
+            className="h-[1px] bg-accent mb-8"
           />
 
           {/* Pre-title */}
@@ -38,7 +38,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-brand-gold text-xs tracking-[0.4em] uppercase mb-6"
+            className="text-accent text-xs tracking-[0.4em] uppercase mb-6"
           >
             Est. 1987 &middot; Milano
           </motion.p>
@@ -77,7 +77,7 @@ export default function Hero() {
           >
             <a
               href="#collections"
-              className="inline-flex items-center justify-center px-8 py-4 bg-brand-gold text-warm-dark text-sm tracking-[0.2em] uppercase font-medium rounded-lg hover:bg-gold-light transition-all duration-500 shadow-gold"
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent text-accent-foreground text-sm tracking-[0.2em] uppercase font-medium rounded-lg hover:bg-gold-light transition-all duration-500 shadow-gold"
             >
               Explore Collections
             </a>

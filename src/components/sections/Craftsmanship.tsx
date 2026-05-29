@@ -34,11 +34,11 @@ export default function Craftsmanship() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="craftsmanship" className="py-24 lg:py-32 bg-brand-bg">
+    <section id="craftsmanship" className="py-24 lg:py-32 bg-background">
       <div ref={sectionRef} className="max-w-7xl mx-auto px-8 lg:px-8">
-        {/* Top: Image + Text side by side — generous gap */}
+        {/* Top: Image + Text */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
-          {/* Image — rounded corners */}
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -52,7 +52,7 @@ export default function Craftsmanship() {
               className="object-cover"
               quality={85}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-warm-dark/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-warm-950/30 to-transparent" />
             {/* Floating quote */}
             <div className="absolute bottom-8 left-8 right-8">
               <blockquote className="font-[family-name:var(--font-playfair)] text-white text-xl lg:text-2xl italic leading-snug">
@@ -67,16 +67,16 @@ export default function Craftsmanship() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           >
-            <p className="text-brand-gold text-xs tracking-[0.4em] uppercase mb-4">
+            <p className="text-accent text-xs tracking-[0.4em] uppercase mb-4">
               The Soul of Fantac
             </p>
-            <h2 className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-brand-text mb-6 leading-tight">
+            <h2 className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-foreground mb-6 leading-tight">
               Crafted by Hand,
               <br />
               <span className="italic">Cherished for Life</span>
             </h2>
-            <div className="w-16 h-[1px] bg-brand-gold mb-8" />
-            <p className="text-brand-muted leading-relaxed mb-6">
+            <div className="w-16 h-[1px] bg-accent mb-8" />
+            <p className="text-muted-foreground leading-relaxed mb-6">
               Since 1987, Fantac Furnitures has been the confluence of Italian
               artistry and Scandinavian restraint. Our ateliers across Europe are
               not factories — they are sanctuaries where master artisans
@@ -84,7 +84,7 @@ export default function Craftsmanship() {
               undergoes over 200 hours of careful craftsmanship, from the first
               sketch to the final hand-rubbed finish.
             </p>
-            <p className="text-brand-muted leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               We believe furniture should outlast fashion. That a dining table
               should gather generations, not just meals. That an armchair should
               welcome you home for decades, not seasons. This is the philosophy
@@ -94,12 +94,12 @@ export default function Craftsmanship() {
           </motion.div>
         </div>
 
-        {/* Stats — soft separator, generous padding */}
+        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-16 border-t border-warm-200 mb-20"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-16 border-t border-b border-border mb-20"
         >
           {stats.map((stat, i) => (
             <motion.div
@@ -109,17 +109,17 @@ export default function Craftsmanship() {
               transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
               className="text-center"
             >
-              <span className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-brand-text block">
+              <span className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-foreground block">
                 {stat.number}
               </span>
-              <span className="text-brand-muted text-xs tracking-[0.2em] uppercase mt-3 block">
+              <span className="text-muted-foreground text-xs tracking-[0.2em] uppercase mt-3 block">
                 {stat.label}
               </span>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Values — soft expanding line, no heavy borders */}
+        {/* Values */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
           {values.map((value, i) => (
             <motion.div
@@ -130,11 +130,11 @@ export default function Craftsmanship() {
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="group"
             >
-              <div className="w-8 h-[1px] bg-brand-gold mb-6 group-hover:w-16 transition-all duration-500" />
-              <h3 className="font-[family-name:var(--font-playfair)] text-xl text-brand-text mb-3">
+              <div className="w-8 h-[1px] bg-accent mb-6 group-hover:w-16 transition-all duration-500" />
+              <h3 className="font-[family-name:var(--font-playfair)] text-xl text-foreground mb-3">
                 {value.title}
               </h3>
-              <p className="text-brand-muted text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {value.description}
               </p>
             </motion.div>

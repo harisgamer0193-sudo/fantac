@@ -33,15 +33,15 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 lg:py-32 bg-brand-bg">
+    <section className="py-24 lg:py-32 bg-background">
       <div ref={ref} className="max-w-7xl mx-auto px-8 lg:px-8">
-        {/* Header — generous spacing */}
+        {/* Header */}
         <div className="text-center mb-20">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-brand-gold text-xs tracking-[0.4em] uppercase mb-4"
+            className="text-accent text-xs tracking-[0.4em] uppercase mb-4"
           >
             Voices of Distinction
           </motion.p>
@@ -49,7 +49,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-brand-text mb-6"
+            className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-foreground mb-6"
           >
             What Our Clients Say
           </motion.h2>
@@ -57,11 +57,11 @@ export default function Testimonials() {
             initial={{ width: 0 }}
             animate={isInView ? { width: "4rem" } : {}}
             transition={{ duration: 1, delay: 0.3 }}
-            className="h-[1px] bg-brand-gold mx-auto"
+            className="h-[1px] bg-accent mx-auto"
           />
         </div>
 
-        {/* Testimonials Grid — soft card shadows, rounded */}
+        {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, i) => (
             <motion.div
@@ -69,13 +69,10 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 + i * 0.15 }}
-              className="bg-brand-card p-8 lg:p-10 rounded-2xl shadow-soft-sm hover:shadow-soft-md transition-shadow duration-500"
+              className="bg-card p-8 lg:p-10 rounded-2xl shadow-soft-sm hover:shadow-soft-md transition-shadow duration-500"
             >
               {/* Quote icon */}
-              <Quote
-                className="text-brand-gold/20 mb-6"
-                size={32}
-              />
+              <Quote className="text-accent/20 mb-6" size={32} />
 
               {/* Stars */}
               <div className="flex gap-1 mb-6">
@@ -83,22 +80,22 @@ export default function Testimonials() {
                   <Star
                     key={j}
                     size={14}
-                    className="text-brand-gold fill-brand-gold"
+                    className="text-accent fill-accent"
                   />
                 ))}
               </div>
 
               {/* Text */}
-              <p className="text-brand-muted text-sm leading-relaxed mb-8">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-8">
                 {testimonial.text}
               </p>
 
-              {/* Author — soft separator */}
-              <div className="border-t border-warm-200/60 pt-5">
-                <p className="font-[family-name:var(--font-playfair)] text-brand-text font-semibold">
+              {/* Author */}
+              <div className="border-t border-border pt-5">
+                <p className="font-[family-name:var(--font-playfair)] text-foreground font-semibold">
                   {testimonial.name}
                 </p>
-                <p className="text-brand-muted text-xs mt-1">
+                <p className="text-muted-foreground text-xs mt-1">
                   {testimonial.title} &middot; {testimonial.location}
                 </p>
               </div>

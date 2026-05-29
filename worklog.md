@@ -28,3 +28,40 @@ Stage Summary:
 - Responsive design for mobile, tablet, and desktop
 - Premium design language: warm gold, espresso, ivory palette
 - Lint passing, dev server running on port 3000
+
+---
+Task ID: 2
+Agent: Main Agent
+Task: Manage color theme — rebuild to semantic token system with light/dark mode
+
+Work Log:
+- Audited all 9 components: found 86 hardcoded brand-* color instances, zero semantic token usage
+- Identified dark mode would be completely broken (brand tokens have no dark variants)
+- Found inconsistency: same semantic purpose used 2-3 different class names across components
+- Rebuilt globals.css with proper token architecture:
+  - Brand Primitives (static: gold, warm scale)
+  - Semantic Tokens (swap with theme: background, foreground, card, muted, accent, border)
+  - Component Tokens (shadow-soft-*, dark-section overrides)
+- Added full light theme (:root) and dark theme (.dark) with exact color mappings
+- Added .dark-section utility for Showroom/Footer (always-dark sections)
+- Added next-themes ThemeProvider to layout.tsx
+- Created ThemeToggle component with animated sun/moon icon swap
+- Updated all 9 components to use semantic tokens exclusively:
+  - bg-brand-bg → bg-background
+  - text-brand-text → text-foreground
+  - text-brand-muted → text-muted-foreground
+  - bg-brand-card → bg-card
+  - text-brand-gold → text-accent
+  - bg-brand-gold → bg-accent
+  - border-warm-200 → border-border
+  - bg-warm-dark + text-warm-dark-text → dark-section + bg-background + text-foreground
+- Fixed lint error: replaced useState+useEffect mounting with useSyncExternalStore
+- Verified lint passes clean, dev server compiles successfully
+
+Stage Summary:
+- Full light/dark theme system with semantic CSS tokens
+- ThemeToggle in Navbar with animated sun/moon transition
+- Dark sections (Showroom, Footer) use .dark-section for consistent appearance
+- All 86 color instances migrated from hardcoded to semantic tokens
+- Scrollbar and text selection adapt to theme
+- Lint passing, dev server running on port 3000

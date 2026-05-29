@@ -4,11 +4,31 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================
-   FANTAC DESIGN SYSTEM — Visual Tokens
+   FANTAC FURNITURES — DESIGN TOKEN SYSTEM
+   
+   Token Architecture:
+   ┌─────────────────────────────────────────────┐
+   │  Brand Primitives (never change)            │
+   │  → gold, warm scale, espresso               │
+   ├─────────────────────────────────────────────┤
+   │  Semantic Tokens (swap with theme)          │
+   │  → background, foreground, card, muted...   │
+   ├─────────────────────────────────────────────┤
+   │  Component Tokens (built from semantics)    │
+   │  → shadow-soft-*, dark-section overrides    │
+   └─────────────────────────────────────────────┘
+   
+   Color Palette:
+   • Background:  #f7f3ee (light)  → #1c1915 (dark)
+   • Text:        #1a1a1a (light)  → #e8e2da (dark)
+   • Muted:       #6b6b6b (light)  → #9a928a (dark)
+   • Gold/Accent: #b89b76 (both)   → #c9ac86 (dark hover)
+   • Card:        #ffffff (light)  → #292520 (dark)
+   • Border:      #e2d9cc (light)  → rgba(255,255,255,0.08) (dark)
    ============================================ */
 
 @theme inline {
-  /* Core theme mappings */
+  /* ── Tailwind Semantic Mappings ── */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -42,65 +62,22 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+
+  /* ── Border Radius ── */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
 
-  /* === BRAND DESIGN TOKENS === */
-  /* Background: #f7f3ee */
-  --color-brand-bg: #f7f3ee;
-  /* Primary text: #1a1a1a */
-  --color-brand-text: #1a1a1a;
-  /* Muted text: #6b6b6b */
-  --color-brand-muted: #6b6b6b;
-  /* Accent gold: #b89b76 */
-  --color-brand-gold: #b89b76;
-  /* Card white: #ffffff */
-  --color-brand-card: #ffffff;
-
-  /* Extended brand palette */
+  /* ── Brand Primitives (static, never swap) ── */
+  --color-gold: #b89b76;
   --color-gold-light: #c9ac86;
   --color-gold-lighter: #dbc4a6;
   --color-gold-dark: #a08660;
   --color-gold-soft: #e8ddd0;
 
-  /* Warm dark for dark sections — softened, not harsh */
-  --color-warm-dark: #2a2520;
-  --color-warm-dark-lighter: #3d3630;
-  --color-warm-dark-text: #e8e2da;
-  --color-warm-dark-muted: #9a928a;
-
-  /* 8px spacing scale */
-  --spacing-1: 8px;
-  --spacing-2: 16px;
-  --spacing-3: 24px;
-  --spacing-4: 32px;
-  --spacing-6: 48px;
-  --spacing-8: 64px;
-
-  /* Soft shadow tokens */
-  --shadow-soft-sm: 0 1px 3px rgba(26, 26, 26, 0.04), 0 1px 2px rgba(26, 26, 26, 0.02);
-  --shadow-soft-md: 0 4px 12px rgba(26, 26, 26, 0.06), 0 1px 4px rgba(26, 26, 26, 0.03);
-  --shadow-soft-lg: 0 8px 24px rgba(26, 26, 26, 0.08), 0 2px 8px rgba(26, 26, 26, 0.04);
-  --shadow-soft-xl: 0 16px 48px rgba(26, 26, 26, 0.10), 0 4px 16px rgba(26, 26, 26, 0.05);
-  --shadow-gold: 0 4px 16px rgba(184, 155, 118, 0.15);
-
-  /* Compatibility aliases */
-  --color-charcoal-900: #1a1a1a;
-  --color-charcoal-800: #2a2a2a;
-  --color-charcoal-700: #3d3d3d;
-  --color-charcoal-600: #525252;
-  --color-charcoal-500: #6b6b6b;
-  --color-charcoal-400: #888888;
-  --color-charcoal-300: #a8a8a8;
-  --color-charcoal-200: #d1d1d1;
-  --color-charcoal-100: #e8e8e8;
-  --color-charcoal-50: #f5f5f5;
-  --color-espresso: #2a2520;
-  --color-ivory: #f7f3ee;
-  --color-gold: #b89b76;
+  /* ── Warm Scale (for gradients, decorative, image overlays) ── */
   --color-warm-50: #faf7f2;
   --color-warm-100: #f0ebe3;
   --color-warm-200: #e2d9cc;
@@ -111,82 +88,137 @@
   --color-warm-700: #7d6a4f;
   --color-warm-800: #5c4d3a;
   --color-warm-900: #3d3228;
+  --color-warm-950: #2a2520;
+
+  /* ── Dark Section Tokens (for Showroom/Footer — always-dark sections) ── */
+  --color-section-dark: #2a2520;
+  --color-section-dark-lighter: #3d3630;
+  --color-section-dark-text: #e8e2da;
+  --color-section-dark-muted: #9a928a;
+
+  /* ── Soft Shadow Tokens ── */
+  --shadow-soft-sm: 0 1px 3px rgba(26,26,26,0.04), 0 1px 2px rgba(26,26,26,0.02);
+  --shadow-soft-md: 0 4px 12px rgba(26,26,26,0.06), 0 1px 4px rgba(26,26,26,0.03);
+  --shadow-soft-lg: 0 8px 24px rgba(26,26,26,0.08), 0 2px 8px rgba(26,26,26,0.04);
+  --shadow-soft-xl: 0 16px 48px rgba(26,26,26,0.10), 0 4px 16px rgba(26,26,26,0.05);
+  --shadow-gold: 0 4px 16px rgba(184,155,118,0.15);
 }
 
+/* ============================================
+   LIGHT THEME (default)
+   ============================================ */
 :root {
   --radius: 0.75rem;
-  /* Background: #f7f3ee */
-  --background: oklch(0.974 0.008 80);
-  /* Primary text: #1a1a1a */
-  --foreground: oklch(0.145 0.005 60);
-  /* Card white: #ffffff */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0.005 60);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0.005 60);
-  --primary: oklch(0.35 0.02 60);
-  --primary-foreground: oklch(0.974 0.008 80);
-  --secondary: oklch(0.955 0.01 80);
-  --secondary-foreground: oklch(0.25 0.015 60);
-  --muted: oklch(0.955 0.01 80);
-  /* Muted text: #6b6b6b */
-  --muted-foreground: oklch(0.495 0.01 60);
-  /* Accent gold: #b89b76 */
-  --accent: oklch(0.684 0.077 72);
-  --accent-foreground: oklch(0.974 0.008 80);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.006 80);
-  --input: oklch(0.92 0.006 80);
-  --ring: oklch(0.684 0.077 72);
-  --chart-1: oklch(0.684 0.077 72);
-  --chart-2: oklch(0.55 0.06 60);
-  --chart-3: oklch(0.40 0.04 50);
-  --chart-4: oklch(0.85 0.06 80);
-  --chart-5: oklch(0.30 0.03 40);
-  --sidebar: oklch(0.965 0.008 80);
-  --sidebar-foreground: oklch(0.145 0.005 60);
-  --sidebar-primary: oklch(0.35 0.02 60);
-  --sidebar-primary-foreground: oklch(0.974 0.008 80);
-  --sidebar-accent: oklch(0.955 0.01 80);
-  --sidebar-accent-foreground: oklch(0.25 0.015 60);
-  --sidebar-border: oklch(0.92 0.006 80);
-  --sidebar-ring: oklch(0.684 0.077 72);
+
+  /* Core: Background #f7f3ee, Text #1a1a1a */
+  --background: #f7f3ee;
+  --foreground: #1a1a1a;
+
+  /* Card: #ffffff */
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+
+  /* Primary: deep warm brown for strong emphasis */
+  --primary: #3d3228;
+  --primary-foreground: #f7f3ee;
+
+  /* Secondary: subtle warm tint for lighter emphasis */
+  --secondary: #f0ebe3;
+  --secondary-foreground: #3d3228;
+
+  /* Muted: #6b6b6b text, #f0ebe3 bg */
+  --muted: #f0ebe3;
+  --muted-foreground: #6b6b6b;
+
+  /* Accent: Gold #b89b76 */
+  --accent: #b89b76;
+  --accent-foreground: #ffffff;
+
+  --destructive: #d4564e;
+
+  /* Border: #e2d9cc — soft warm divider */
+  --border: #e2d9cc;
+  --input: #e2d9cc;
+  --ring: #b89b76;
+
+  /* Charts */
+  --chart-1: #b89b76;
+  --chart-2: #7d6a4f;
+  --chart-3: #5c4d3a;
+  --chart-4: #dbc4a6;
+  --chart-5: #3d3228;
+
+  /* Sidebar (maps to same warm system) */
+  --sidebar: #f0ebe3;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #3d3228;
+  --sidebar-primary-foreground: #f7f3ee;
+  --sidebar-accent: #e2d9cc;
+  --sidebar-accent-foreground: #3d3228;
+  --sidebar-border: #e2d9cc;
+  --sidebar-ring: #b89b76;
 }
 
+/* ============================================
+   DARK THEME
+   ============================================ */
 .dark {
-  --background: oklch(0.18 0.012 60);
-  --foreground: oklch(0.92 0.008 80);
-  --card: oklch(0.22 0.015 60);
-  --card-foreground: oklch(0.92 0.008 80);
-  --popover: oklch(0.22 0.015 60);
-  --popover-foreground: oklch(0.92 0.008 80);
-  --primary: oklch(0.85 0.06 80);
-  --primary-foreground: oklch(0.18 0.012 60);
-  --secondary: oklch(0.27 0.015 60);
-  --secondary-foreground: oklch(0.92 0.008 80);
-  --muted: oklch(0.27 0.015 60);
-  --muted-foreground: oklch(0.62 0.015 70);
-  --accent: oklch(0.684 0.077 72);
-  --accent-foreground: oklch(0.18 0.012 60);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.684 0.077 72);
-  --chart-1: oklch(0.684 0.077 72);
-  --chart-2: oklch(0.55 0.06 60);
-  --chart-3: oklch(0.40 0.04 50);
-  --chart-4: oklch(0.85 0.06 80);
-  --chart-5: oklch(0.30 0.03 40);
-  --sidebar: oklch(0.22 0.015 60);
-  --sidebar-foreground: oklch(0.92 0.008 80);
-  --sidebar-primary: oklch(0.684 0.077 72);
-  --sidebar-primary-foreground: oklch(0.18 0.012 60);
-  --sidebar-accent: oklch(0.27 0.015 60);
-  --sidebar-accent-foreground: oklch(0.92 0.008 80);
-  --sidebar-border: oklch(1 0 0 / 8%);
-  --sidebar-ring: oklch(0.684 0.077 72);
+  /* Core: Deep warm dark #1c1915, Soft cream text #e8e2da */
+  --background: #1c1915;
+  --foreground: #e8e2da;
+
+  /* Card: Slightly lighter dark #292520 */
+  --card: #292520;
+  --card-foreground: #e8e2da;
+
+  --popover: #292520;
+  --popover-foreground: #e8e2da;
+
+  /* Primary: Gold accent becomes primary in dark */
+  --primary: #c9ac86;
+  --primary-foreground: #1c1915;
+
+  /* Secondary */
+  --secondary: #3d3630;
+  --secondary-foreground: #e8e2da;
+
+  /* Muted */
+  --muted: #3d3630;
+  --muted-foreground: #9a928a;
+
+  /* Accent: Gold stays gold, slightly brighter */
+  --accent: #c9ac86;
+  --accent-foreground: #1c1915;
+
+  --destructive: #e87068;
+
+  /* Border: Very subtle warm light */
+  --border: rgba(255,255,255,0.08);
+  --input: rgba(255,255,255,0.10);
+  --ring: #c9ac86;
+
+  --chart-1: #c9ac86;
+  --chart-2: #9a928a;
+  --chart-3: #7d6a4f;
+  --chart-4: #e8ddd0;
+  --chart-5: #e8e2da;
+
+  --sidebar: #292520;
+  --sidebar-foreground: #e8e2da;
+  --sidebar-primary: #c9ac86;
+  --sidebar-primary-foreground: #1c1915;
+  --sidebar-accent: #3d3630;
+  --sidebar-accent-foreground: #e8e2da;
+  --sidebar-border: rgba(255,255,255,0.08);
+  --sidebar-ring: #c9ac86;
 }
 
+/* ============================================
+   BASE STYLES
+   ============================================ */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -203,56 +235,63 @@
    SOFT UI UTILITIES
    ============================================ */
 
-/* Soft scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #c9ac86;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #b89b76;
-}
+/* Scrollbar — adapts to theme */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-gold-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold); }
 
-/* Warm text selection */
+/* Selection — adapts to theme */
 ::selection {
-  background: #e8ddd0;
-  color: #2a2520;
+  background: var(--color-gold-soft);
+  color: var(--color-warm-950);
+}
+.dark ::selection {
+  background: rgba(184,155,118,0.25);
+  color: #e8e2da;
 }
 
 /* Smooth image rendering */
-img {
-  transition: opacity 0.5s ease;
+img { transition: opacity 0.5s ease; }
+
+/* ============================================
+   DARK SECTION UTILITY
+   
+   For sections that should always appear dark
+   regardless of light/dark mode (Showroom, Footer).
+   Overrides semantic tokens locally.
+   ============================================ */
+.dark-section {
+  --background: #2a2520;
+  --foreground: #e8e2da;
+  --card: #3d3630;
+  --card-foreground: #e8e2da;
+  --muted: #3d3630;
+  --muted-foreground: #9a928a;
+  --border: rgba(255,255,255,0.06);
+  --secondary: #3d3630;
+  --secondary-foreground: #e8e2da;
 }
 
 /* ============================================
-   ANIMATION KEYFRAMES
+   ANIMATIONS
    ============================================ */
-
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes scaleIn {
   from { opacity: 0; transform: scale(0.97); }
   to { opacity: 1; transform: scale(1); }
 }
-
 @keyframes widthExpand {
   from { width: 0; }
   to { width: 4rem; }
@@ -274,10 +313,8 @@ img {
 .delay-800 { animation-delay: 800ms; }
 
 /* ============================================
-   ELEGANT HOVER EFFECTS
+   HOVER EFFECTS
    ============================================ */
-
-/* Soft underline on hover */
 .elegant-hover {
   position: relative;
 }
@@ -296,9 +333,8 @@ img {
 }
 
 /* ============================================
-   SOFT SHADOW UTILITY CLASSES
+   SHADOW UTILITIES
    ============================================ */
-
 .shadow-soft-sm { box-shadow: var(--shadow-soft-sm); }
 .shadow-soft-md { box-shadow: var(--shadow-soft-md); }
 .shadow-soft-lg { box-shadow: var(--shadow-soft-lg); }

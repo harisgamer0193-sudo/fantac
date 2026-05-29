@@ -66,7 +66,7 @@ function CollectionCard({
       transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
       className="group cursor-pointer"
     >
-      {/* Image Container — rounded, soft shadow on hover */}
+      {/* Image Container */}
       <div className="relative aspect-[3/4] overflow-hidden rounded-xl mb-5 shadow-soft-sm group-hover:shadow-soft-lg transition-shadow duration-700">
         <Image
           src={collection.image}
@@ -76,10 +76,10 @@ function CollectionCard({
           quality={85}
         />
         {/* Soft hover overlay */}
-        <div className="absolute inset-0 bg-warm-dark/0 group-hover:bg-warm-dark/15 transition-all duration-500" />
+        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/15 transition-all duration-500" />
         {/* Explore link */}
         <div className="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-          <span className="inline-flex items-center gap-2 text-white text-xs tracking-[0.2em] uppercase bg-warm-dark/40 backdrop-blur-sm px-4 py-2 rounded-lg">
+          <span className="inline-flex items-center gap-2 text-white text-xs tracking-[0.2em] uppercase bg-foreground/40 backdrop-blur-sm px-4 py-2 rounded-lg">
             Explore
             <ArrowRight size={12} />
           </span>
@@ -88,13 +88,13 @@ function CollectionCard({
 
       {/* Text Content */}
       <div className="px-1">
-        <p className="text-brand-gold text-[10px] tracking-[0.3em] uppercase mb-1">
+        <p className="text-accent text-[10px] tracking-[0.3em] uppercase mb-1">
           {collection.subtitle}
         </p>
-        <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-brand-text mb-2">
+        <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-foreground mb-2">
           {collection.title}
         </h3>
-        <p className="text-brand-muted text-sm leading-relaxed">
+        <p className="text-muted-foreground text-sm leading-relaxed">
           {collection.description}
         </p>
       </div>
@@ -107,15 +107,15 @@ export default function Collections() {
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="collections" className="py-24 lg:py-32 bg-brand-card">
+    <section id="collections" className="py-24 lg:py-32 bg-card">
       <div className="max-w-7xl mx-auto px-8 lg:px-8">
-        {/* Section Header — generous spacing */}
+        {/* Section Header */}
         <div ref={headerRef} className="text-center mb-20 lg:mb-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-brand-gold text-xs tracking-[0.4em] uppercase mb-4"
+            className="text-accent text-xs tracking-[0.4em] uppercase mb-4"
           >
             Curated for You
           </motion.p>
@@ -123,7 +123,7 @@ export default function Collections() {
             initial={{ opacity: 0, y: 20 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-brand-text mb-6"
+            className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-foreground mb-6"
           >
             Our Collections
           </motion.h2>
@@ -131,13 +131,13 @@ export default function Collections() {
             initial={{ width: 0 }}
             animate={isHeaderInView ? { width: "4rem" } : {}}
             transition={{ duration: 1, delay: 0.3 }}
-            className="h-[1px] bg-brand-gold mx-auto mb-8"
+            className="h-[1px] bg-accent mx-auto mb-8"
           />
           <motion.p
             initial={{ opacity: 0 }}
             animate={isHeaderInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-brand-muted max-w-xl mx-auto leading-relaxed"
+            className="text-muted-foreground max-w-xl mx-auto leading-relaxed"
           >
             Each collection is a dialogue between heritage and innovation —
             European craftsmanship refined through decades, designed for the way
@@ -166,7 +166,7 @@ export default function Collections() {
         >
           <a
             href="#"
-            className="inline-flex items-center gap-3 text-brand-text text-sm tracking-[0.2em] uppercase group"
+            className="inline-flex items-center gap-3 text-foreground text-sm tracking-[0.2em] uppercase group"
           >
             View All Collections
             <ArrowRight

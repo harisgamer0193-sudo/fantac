@@ -30,7 +30,7 @@ export default function FeatureStrip() {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="py-16 lg:py-20 bg-brand-bg" ref={ref}>
+    <section className="py-16 lg:py-20 bg-background" ref={ref}>
       <div className="max-w-7xl mx-auto px-8 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {features.map((feature, i) => (
@@ -41,14 +41,14 @@ export default function FeatureStrip() {
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="flex gap-5 items-start"
             >
-              <div className="w-12 h-12 rounded-xl bg-brand-gold/8 flex items-center justify-center flex-shrink-0">
-                <feature.icon className="text-brand-gold" size={20} />
+              <div className="w-12 h-12 rounded-xl bg-accent/8 flex items-center justify-center flex-shrink-0">
+                <feature.icon className="text-accent" size={20} />
               </div>
               <div>
-                <h3 className="font-[family-name:var(--font-playfair)] text-lg text-brand-text mb-1">
+                <h3 className="font-[family-name:var(--font-playfair)] text-lg text-foreground mb-1">
                   {feature.title}
                 </h3>
-                <p className="text-brand-muted text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>
