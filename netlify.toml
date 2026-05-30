@@ -1,0 +1,59 @@
+# ============================================
+# FANTAC FURNITURES — Netlify Deployment Config
+# ============================================
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Automatically install the Next.js Essential plugin
+# This enables: App Router, SSR, Dynamic Routes, Image Optimization, Middleware
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# ============================================
+# HEADERS — Performance & Security
+# ============================================
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache static assets aggressively
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache images with moderate TTL
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+# Cache font files
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ============================================
+# REDIRECTS — Clean URLs
+# ============================================
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/shop"
+  to = "/collections"
+  status = 301

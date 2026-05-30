@@ -19,17 +19,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://fantac-furnitures.netlify.app"
+  ),
   title: "Fantac Furnitures | Luxury Living, Redefined",
   description:
-    "Discover exquisite European-crafted furniture at Fantac Furnitures. Italian luxury meets Scandinavian minimalism — timeless pieces for modern living.",
+    "Discover exquisite crafted furniture at Fantac Furnitures. Premium luxury meets timeless design — Lahore's finest for modern living.",
   keywords: [
     "luxury furniture",
-    "Italian furniture",
-    "Scandinavian design",
-    "modern living",
     "premium furniture",
+    "Lahore furniture",
+    "modern living",
+    "designer furniture",
     "Fantac",
-    "European furniture",
+    "Pakistan furniture",
   ],
   authors: [{ name: "Fantac Furnitures" }],
   icons: {
@@ -38,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fantac Furnitures | Luxury Living, Redefined",
     description:
-      "Discover exquisite European-crafted furniture. Italian luxury meets Scandinavian minimalism.",
+      "Discover exquisite crafted furniture. Premium luxury meets timeless design in Lahore.",
     type: "website",
     siteName: "Fantac Furnitures",
   },
@@ -56,7 +59,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  // Note: "standalone" output removed — Netlify Essential plugin handles build output
+  // If deploying to Docker/self-hosted instead, add: output: "standalone"
   typescript: {
     ignoreBuildErrors: true,
   },
