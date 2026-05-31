@@ -41,7 +41,7 @@ export default function AboutPageClient() {
       <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden -mt-20">
         <div className="absolute inset-0">
           <Image
-            src="/craftsmanship.jpg"
+            src="/craftsmanship.png"
             alt="Fantac artisan hand-carving wood furniture"
             fill
             className="object-cover"
@@ -89,7 +89,7 @@ export default function AboutPageClient() {
               className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-soft-lg"
             >
               <Image
-                src="/craftsmanship.jpg"
+                src="/craftsmanship.png"
                 alt="Fantac artisan hand-carving wood furniture"
                 fill
                 className="object-cover"
@@ -286,7 +286,7 @@ export default function AboutPageClient() {
             className="relative aspect-[21/9] overflow-hidden rounded-2xl mb-12 shadow-soft-xl"
           >
             <Image
-              src="/showroom.jpg"
+              src="/showroom.png"
               alt="Fantac Furnitures flagship showroom in Milan"
               fill
               className="object-cover"

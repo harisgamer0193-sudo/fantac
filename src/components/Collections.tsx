@@ -8,22 +8,22 @@ import Link from "next/link";
 const collections = [
   {
     title: "Sofas",
-    image: "/cat-sofas.jpg",
+    image: "/cat-sofas.png",
     href: "/collections?cat=Seating",
   },
   {
     title: "Beds",
-    image: "/cat-beds.jpg",
+    image: "/cat-beds.png",
     href: "/collections?cat=Bedroom",
   },
   {
     title: "Dining Sets",
-    image: "/cat-dining-sets.jpg",
+    image: "/cat-dining-sets.png",
     href: "/collections?cat=Dining",
   },
   {
     title: "Office Luxury",
-    image: "/cat-office-luxury.jpg",
+    image: "/cat-office-luxury.png",
     href: "/collections?cat=Office",
   },
   {
@@ -33,7 +33,7 @@ const collections = [
   },
   {
     title: "Outdoor",
-    image: "/collection-outdoor.jpg",
+    image: "/collection-outdoor.png",
     href: "/collections?cat=Outdoor",
   },
 ];

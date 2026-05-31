@@ -51,7 +51,7 @@ export default function AboutSection() {
             className="relative overflow-hidden rounded-2xl lg:rounded-r-none lg:rounded-l-2xl aspect-[4/3] lg:aspect-auto"
           >
             <Image
-              src="/about-workshop.jpg"
+              src="/about-workshop.png"
               alt="Fantac Furnitures — artisan craftsmanship in our Lahore atelier"
               fill
               className="object-cover"
