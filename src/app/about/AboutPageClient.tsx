@@ -302,7 +302,7 @@ export default function AboutPageClient() {
                   </div>
                   <div>
                     <p className="text-foreground text-sm font-medium">
-                      Main Boulevard, Gulberg
+                      Bedian Rd, Sector D DHA Phase 6
                     </p>
                     <p className="text-muted-foreground text-xs">Lahore, Pakistan</p>
                   </div>

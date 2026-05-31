@@ -52,7 +52,7 @@ export default function Hero() {
         style={{ y: imageY, scale: imageScale }}
       >
         <Image
-          src="/hero-cinematic.png"
+          src="/hero-cinematic.jpeg"
           alt="Fantac Furnitures — luxury interior living room"
           fill
           className="object-cover"

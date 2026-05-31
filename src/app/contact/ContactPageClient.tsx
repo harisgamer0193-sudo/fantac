@@ -298,7 +298,7 @@ export default function ContactPageClient() {
                     Address
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Main Boulevard, Gulberg<br />
+                    Bedian Rd, Sector D DHA Phase 6<br />
                     Lahore, Pakistan
                   </p>
                 </div>
@@ -358,7 +358,7 @@ export default function ContactPageClient() {
                     Fantac Showroom
                   </p>
                   <p className="text-muted-foreground text-sm">
-                    Main Boulevard, Gulberg, Lahore
+                    Bedian Rd, Sector D DHA Phase 6, Lahore
                   </p>
                   <p className="text-muted-foreground text-xs mt-2">
                     31.5204° N, 74.3587° E
