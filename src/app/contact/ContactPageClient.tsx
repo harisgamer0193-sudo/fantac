@@ -298,8 +298,8 @@ export default function ContactPageClient() {
                     Address
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Via Montenapoleone 28<br />
-                    20121 Milano, Italy
+                    Main Boulevard, Gulberg<br />
+                    Lahore, Pakistan
                   </p>
                 </div>
               </div>
@@ -313,7 +313,7 @@ export default function ContactPageClient() {
                     Hours
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Monday – Saturday: 10:00 – 19:00<br />
+                    Monday – Saturday: 10:00 – 20:00<br />
                     Sunday: By appointment only
                   </p>
                 </div>
@@ -328,7 +328,7 @@ export default function ContactPageClient() {
                     Phone
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    +39 02 8901 2345<br />
+                    +92 311 1521111<br />
                     Private consultations available
                   </p>
                 </div>
@@ -358,10 +358,10 @@ export default function ContactPageClient() {
                     Fantac Showroom
                   </p>
                   <p className="text-muted-foreground text-sm">
-                    Via Montenapoleone 28, Milano
+                    Main Boulevard, Gulberg, Lahore
                   </p>
                   <p className="text-muted-foreground text-xs mt-2">
-                    45.4722° N, 9.1936° E
+                    31.5204° N, 74.3587° E
                   </p>
                 </div>
               </div>

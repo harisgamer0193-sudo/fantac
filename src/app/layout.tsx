@@ -66,6 +66,7 @@ export default function RootLayout({
           <Navbar />
           <main className="pt-20 page-enter">{children}</main>
           <Footer />
+          <div className="grain-overlay" aria-hidden="true" />
           <Toaster />
         </ThemeProvider>
       </body>

@@ -9,37 +9,37 @@ import { X } from "lucide-react";
 /* ── Gallery Data ── */
 const galleryImages = [
   {
-    src: "/gallery-1-living.png",
+    src: "/gallery-1-living.jpg",
     alt: "Serene living room with boucle sofa and warm afternoon light",
     span: "col-span-1 row-span-2",   // tall — portrait
     aspect: "aspect-[3/4]",
   },
   {
-    src: "/gallery-2-dining.png",
+    src: "/gallery-2-dining.jpg",
     alt: "Elegant dining room bathed in golden hour light",
     span: "col-span-1 row-span-1",   // standard — landscape
     aspect: "aspect-[4/3]",
   },
   {
-    src: "/gallery-3-detail.png",
+    src: "/gallery-3-detail.jpg",
     alt: "Hand-stitched leather detail — the mark of the artisan",
     span: "col-span-1 row-span-2",   // tall — portrait
     aspect: "aspect-[3/4]",
   },
   {
-    src: "/gallery-4-bedroom.png",
+    src: "/gallery-4-bedroom.jpg",
     alt: "Scandinavian bedroom sanctuary in morning light",
     span: "col-span-1 row-span-1",   // standard — landscape
     aspect: "aspect-[4/3]",
   },
   {
-    src: "/gallery-5-office.png",
+    src: "/gallery-5-office.jpg",
     alt: "Sophisticated home office with walnut and brass",
     span: "col-span-1 row-span-2",   // tall — portrait
     aspect: "aspect-[3/4]",
   },
   {
-    src: "/gallery-6-terrace.png",
+    src: "/gallery-6-terrace.jpg",
     alt: "Mediterranean terrace with woven rope lounge",
     span: "col-span-1 row-span-1",   // standard — landscape
     aspect: "aspect-[4/3]",

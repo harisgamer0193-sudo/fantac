@@ -76,8 +76,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-6">
-              Where Italian artistry meets Scandinavian restraint. Crafting
-              timeless furniture since 1987, for those who understand that true
+              Where Pakistani artistry meets timeless design. Crafting
+              luxury furniture since 1987, for those who understand that true
               luxury is felt, not flaunted.
             </p>
             {/* Social links */}
@@ -121,7 +121,7 @@ export default function Footer() {
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-8 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground/60 text-xs">
-            &copy; {new Date().getFullYear()} Fantac Furnitures S.r.l. All
+            &copy; {new Date().getFullYear()} Fantac Furnitures. All
             rights reserved.
           </p>
           <div className="flex gap-6">

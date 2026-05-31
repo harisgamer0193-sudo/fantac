@@ -51,8 +51,8 @@ export default function AboutSection() {
             className="relative overflow-hidden rounded-2xl lg:rounded-r-none lg:rounded-l-2xl aspect-[4/3] lg:aspect-auto"
           >
             <Image
-              src="/about-workshop.png"
-              alt="Fantac Furnitures — artisan craftsmanship in our European atelier"
+              src="/about-workshop.jpg"
+              alt="Fantac Furnitures — artisan craftsmanship in our Lahore atelier"
               fill
               className="object-cover"
               quality={90}
@@ -80,7 +80,7 @@ export default function AboutSection() {
               <div className="flex items-center gap-3 px-4 py-2 bg-background/80 backdrop-blur-md rounded-lg shadow-soft-sm">
                 <div className="w-6 h-[1px] bg-accent" />
                 <span className="text-foreground text-xs tracking-[0.3em] uppercase font-medium">
-                  Est. 1987
+                  Est. 1987 · Lahore
                 </span>
               </div>
             </motion.div>
@@ -148,11 +148,11 @@ export default function AboutSection() {
                 className="text-muted-foreground leading-relaxed mb-6"
               >
                 At Fantac Furnitures, craftsmanship is not a process — it is a
-                covenant. Since our founding in Milan in 1987, each piece has
+                covenant. Since our founding in Lahore in 1987, each piece has
                 been shaped by hands that understand wood as a living material,
                 leather as a second skin, and metal as a sculptor&rsquo;s medium.
                 Our artisans invest over 200 hours in every creation, weaving
-                centuries of European tradition into forms that feel unmistakably
+                centuries of South Asian tradition into forms that feel unmistakably
                 contemporary.
               </motion.p>
 
@@ -163,10 +163,10 @@ export default function AboutSection() {
                 className="text-muted-foreground leading-relaxed mb-10"
               >
                 We believe that true luxury whispers. It resides in the grain of
-                hand-selected European oak, the precision of a mortise-and-tenon
-                joint, the gentle patina that deepens with years of use. Our
-                furniture does not follow trends — it accumulates character,
-                growing more beautiful with every passing season.
+                hand-selected oak, the precision of a mortise-and-tenon joint, the
+                gentle patina that deepens with years of use. Our furniture does
+                not follow trends — it accumulates character, growing more
+                beautiful with every passing season.
               </motion.p>
 
               {/* CTA Link */}

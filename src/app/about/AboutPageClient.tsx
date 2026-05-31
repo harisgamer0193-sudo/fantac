@@ -8,9 +8,9 @@ import { MapPin, Clock, Phone } from "lucide-react";
 
 const stats = [
   { number: "37", label: "Years of Mastery" },
-  { number: "12", label: "European Ateliers" },
+  { number: "3", label: "Ateliers in Lahore" },
   { number: "200+", label: "Master Artisans" },
-  { number: "48", label: "Countries Served" },
+  { number: "15", label: "Cities Served" },
 ];
 
 const values = [
@@ -41,7 +41,7 @@ export default function AboutPageClient() {
       <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden -mt-20">
         <div className="absolute inset-0">
           <Image
-            src="/craftsmanship.png"
+            src="/craftsmanship.jpg"
             alt="Fantac artisan hand-carving wood furniture"
             fill
             className="object-cover"
@@ -58,7 +58,7 @@ export default function AboutPageClient() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-accent text-xs tracking-[0.4em] uppercase mb-6"
           >
-            Est. 1987 · Milano
+            Est. 1987 · Lahore
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -89,7 +89,7 @@ export default function AboutPageClient() {
               className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-soft-lg"
             >
               <Image
-                src="/craftsmanship.png"
+                src="/craftsmanship.jpg"
                 alt="Fantac artisan hand-carving wood furniture"
                 fill
                 className="object-cover"
@@ -120,9 +120,9 @@ export default function AboutPageClient() {
               </h2>
               <div className="w-16 h-[1px] bg-accent mb-8" />
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Since 1987, Fantac Furnitures has been the confluence of Italian
-                artistry and Scandinavian restraint. Our ateliers across Europe are
-                not factories — they are sanctuaries where master artisans
+                Since 1987, Fantac Furnitures has been the confluence of
+                Pakistani artistry and timeless design. Our ateliers across
+                Lahore are not factories — they are sanctuaries where master artisans
                 transform raw, natural materials into heirlooms. Each piece
                 undergoes over 200 hours of careful craftsmanship, from the first
                 sketch to the final hand-rubbed finish.
@@ -271,7 +271,7 @@ export default function AboutPageClient() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-muted-foreground max-w-xl mx-auto leading-relaxed"
             >
-              Step inside our 3,000 square meter flagship showroom in Milan, where
+              Step inside our flagship showroom in Lahore, where
               every collection is presented in immersive, lifestyle-curated
               settings.
             </motion.p>
@@ -286,7 +286,7 @@ export default function AboutPageClient() {
             className="relative aspect-[21/9] overflow-hidden rounded-2xl mb-12 shadow-soft-xl"
           >
             <Image
-              src="/showroom.png"
+              src="/showroom.jpg"
               alt="Fantac Furnitures flagship showroom in Milan"
               fill
               className="object-cover"
@@ -302,9 +302,9 @@ export default function AboutPageClient() {
                   </div>
                   <div>
                     <p className="text-foreground text-sm font-medium">
-                      Via Montenapoleone 28
+                      Main Boulevard, Gulberg
                     </p>
-                    <p className="text-muted-foreground text-xs">20121 Milano, Italy</p>
+                    <p className="text-muted-foreground text-xs">Lahore, Pakistan</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -313,7 +313,7 @@ export default function AboutPageClient() {
                   </div>
                   <div>
                     <p className="text-foreground text-sm font-medium">
-                      Mon – Sat: 10:00 – 19:00
+                      Mon – Sat: 10:00 – 20:00
                     </p>
                     <p className="text-muted-foreground text-xs">
                       Sunday: By appointment
@@ -325,7 +325,7 @@ export default function AboutPageClient() {
                     <Phone className="text-accent" size={16} />
                   </div>
                   <div>
-                    <p className="text-foreground text-sm font-medium">+39 02 8901 2345</p>
+                    <p className="text-foreground text-sm font-medium">+92 311 1521111</p>
                     <p className="text-muted-foreground text-xs">
                       Private consultations available
                     </p>
@@ -347,7 +347,7 @@ export default function AboutPageClient() {
               Also in
             </p>
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-              {["Paris", "London", "Copenhagen", "Munich", "Zurich", "New York", "Dubai"].map(
+              {["Karachi", "Islamabad", "Faisalabad", "Multan", "Peshawar", "Dubai", "London"].map(
                 (city) => (
                   <span
                     key={city}

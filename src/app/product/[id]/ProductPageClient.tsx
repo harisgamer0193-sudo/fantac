@@ -37,12 +37,10 @@ export default function ProductPageClient() {
   }
 
   const relatedProducts = getRelatedProducts(product);
-  const galleryImages = [
-    { src: product.image, alt: `${product.name} - Front view` },
-    { src: product.image, alt: `${product.name} - Detail view` },
-    { src: product.image, alt: `${product.name} - Side view` },
-    { src: product.image, alt: `${product.name} - Close-up` },
-  ];
+  const galleryImages = product.images.map((src, i) => ({
+    src,
+    alt: `${product.name} - ${["Front view", "Detail view", "Side view", "Close-up"][i] || "View"}`,
+  }));
 
   return (
     <div className="min-h-screen bg-background">
@@ -90,12 +88,6 @@ export default function ProductPageClient() {
               <h1 className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl text-foreground mb-4 leading-tight">
                 {product.name}
               </h1>
-              <p className="text-2xl text-muted-foreground font-medium mb-8">
-                {product.price}
-              </p>
-
-              <div className="w-16 h-[1px] bg-accent mb-8" />
-
               <p className="text-muted-foreground leading-relaxed mb-8">
                 {product.description}
               </p>
@@ -107,6 +99,8 @@ export default function ProductPageClient() {
                 </p>
                 <p className="text-foreground">{product.material}</p>
               </div>
+
+              <div className="w-16 h-[1px] bg-accent mb-8" />
 
               {/* Enquire Button */}
               <Link href="/contact" className="block">
@@ -124,7 +118,7 @@ export default function ProductPageClient() {
               <div className="mt-10 pt-8 border-t border-border space-y-4">
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">Origin</span>
-                  <span className="text-foreground">Italy / Scandinavia</span>
+                  <span className="text-foreground">Pakistan</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">Guarantee</span>
@@ -164,7 +158,6 @@ export default function ProductPageClient() {
                   id={p.id}
                   name={p.name}
                   category={p.category}
-                  price={p.price}
                   image={p.image}
                   description={p.description}
                   material={p.material}

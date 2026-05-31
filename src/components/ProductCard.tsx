@@ -9,7 +9,6 @@ interface ProductCardProps {
   id: string;
   name: string;
   category: string;
-  price: string;
   image: string;
   description?: string;
   material?: string;
@@ -20,7 +19,6 @@ export default function ProductCard({
   id,
   name,
   category,
-  price,
   image,
   description,
   index = 0,
@@ -112,9 +110,9 @@ export default function ProductCard({
               </p>
             )}
 
-            {/* Price — minimal, refined */}
-            <p className="text-foreground/70 text-base font-light tracking-wide pt-1">
-              {price}
+            {/* Enquire Now — minimal, refined */}
+            <p className="text-accent text-sm tracking-[0.1em] uppercase pt-1 group-hover:tracking-[0.15em] transition-all duration-500">
+              Enquire Now
             </p>
           </div>
         </Link>

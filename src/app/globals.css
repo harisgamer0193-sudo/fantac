@@ -18,18 +18,18 @@
    │  → shadow-soft-*, dark-section overrides    │
    └─────────────────────────────────────────────┘
    
-   Color Palette (Step 5):
-   • Background:  #f6f1ea (Ivory)     → #1A1510 (Espresso Dark)
+   Color Palette:
+   • Background:  #E8DFD2 (Warm Stone) → #141110 (Espresso Dark)
    • Text:        #3C2415 (Espresso)   → #EDE5DA (Champagne Light)
-   • Muted:       #7A6B5D (Charcoal)  → #9A8E80 (Warm Gray)
+   • Muted:       #5E4F41 (Walnut)    → #9A8E80 (Warm Gray)
    • Gold/Accent: #C9A96E (Gold)      → #D4B87A (Gold Light)
-   • Card:        #F5EDE3 (Champagne) → #2A2318 (Dark Brown)
-   • Border:      #DDD2C4 (Tan)       → rgba(255,255,255,0.08) (dark)
+   • Card:        #FDFBF8 (Ivory)     → #221D18 (Dark Brown)
+   • Border:      #CFC3B3 (Tan)       → rgba(255,255,255,0.10) (dark)
    
-   Layout Rules (Step 5):
+   Layout Rules:
    • Sticky navbar with blur effect
    • Consistent 8px spacing scale
-   • Global ivory background (#f6f1ea)
+   • Global warm stone background (#E8DFD2)
    • Smooth page transitions
    ============================================ */
 
@@ -103,54 +103,54 @@
   --color-section-dark-muted: #9A8E80;
 
   /* ── Soft Shadow Tokens ── */
-  --shadow-soft-sm: 0 1px 3px rgba(60,36,21,0.04), 0 1px 2px rgba(60,36,21,0.02);
-  --shadow-soft-md: 0 4px 12px rgba(60,36,21,0.06), 0 1px 4px rgba(60,36,21,0.03);
-  --shadow-soft-lg: 0 8px 24px rgba(60,36,21,0.08), 0 2px 8px rgba(60,36,21,0.04);
-  --shadow-soft-xl: 0 16px 48px rgba(60,36,21,0.10), 0 4px 16px rgba(60,36,21,0.05);
+  --shadow-soft-sm: 0 1px 4px rgba(60,36,21,0.06), 0 1px 2px rgba(60,36,21,0.03);
+  --shadow-soft-md: 0 4px 16px rgba(60,36,21,0.08), 0 1px 6px rgba(60,36,21,0.04);
+  --shadow-soft-lg: 0 8px 28px rgba(60,36,21,0.10), 0 2px 10px rgba(60,36,21,0.05);
+  --shadow-soft-xl: 0 16px 48px rgba(60,36,21,0.12), 0 4px 18px rgba(60,36,21,0.06);
   --shadow-gold: 0 4px 16px rgba(201,169,110,0.18);
   --shadow-gold-glow: 0 8px 32px rgba(194,164,109,0.25), 0 2px 8px rgba(194,164,109,0.12);
   --shadow-gold-glow-lg: 0 16px 48px rgba(194,164,109,0.30), 0 4px 16px rgba(194,164,109,0.15);
 }
 
 /* ============================================
-   LIGHT THEME (default)
-   Palette: Ivory, Champagne, Gold, Espresso, Charcoal
+   LIGHT THEME
+   Palette: Warm Stone, Ivory, Gold, Espresso
    ============================================ */
 :root {
   --radius: 0.75rem;
 
-  /* Core: Ivory background, Espresso text */
-  --background: #f6f1ea;
+  /* Core: Warm Stone background with clear contrast, Espresso text */
+  --background: #E8DFD2;
   --foreground: #3C2415;
 
-  /* Card: Champagne */
-  --card: #F5EDE3;
+  /* Card: Near-white Ivory — pops against warm background */
+  --card: #FDFBF8;
   --card-foreground: #3C2415;
 
-  --popover: #F5EDE3;
+  --popover: #FDFBF8;
   --popover-foreground: #3C2415;
 
   /* Primary: Espresso for strong emphasis */
   --primary: #3C2415;
-  --primary-foreground: #f6f1ea;
+  --primary-foreground: #FDFBF8;
 
-  /* Secondary: warm neutral tint */
-  --secondary: #EDE5DA;
+  /* Secondary: deeper warm for secondary surfaces */
+  --secondary: #D9CEBC;
   --secondary-foreground: #3C2415;
 
-  /* Muted: Charcoal text, warm neutral bg */
-  --muted: #EDE5DA;
-  --muted-foreground: #7A6B5D;
+  /* Muted: deeper warm bg, darker text for readability */
+  --muted: #D9CEBC;
+  --muted-foreground: #5E4F41;
 
   /* Accent: Gold */
   --accent: #C9A96E;
-  --accent-foreground: #f6f1ea;
+  --accent-foreground: #FDFBF8;
 
   --destructive: #C4564A;
 
-  /* Border: warm tan divider */
-  --border: #DDD2C4;
-  --input: #DDD2C4;
+  /* Border: visible warm tan */
+  --border: #CFC3B3;
+  --input: #CFC3B3;
   --ring: #C9A96E;
 
   /* Charts */
@@ -161,83 +161,87 @@
   --chart-5: #3C2415;
 
   /* Sidebar */
-  --sidebar: #EDE5DA;
+  --sidebar: #D9CEBC;
   --sidebar-foreground: #3C2415;
   --sidebar-primary: #3C2415;
-  --sidebar-primary-foreground: #f6f1ea;
-  --sidebar-accent: #DDD2C4;
+  --sidebar-primary-foreground: #FDFBF8;
+  --sidebar-accent: #CFC3B3;
   --sidebar-accent-foreground: #3C2415;
-  --sidebar-border: #DDD2C4;
+  --sidebar-border: #CFC3B3;
   --sidebar-ring: #C9A96E;
 }
 
 /* ============================================
-   DARK THEME
+   DARK THEME (default)
    Palette: Espresso Dark, Champagne Light, Gold Light
+   Premium dark with warm undertones
    ============================================ */
 .dark {
   /* Core: Deep espresso dark, Champagne light text */
-  --background: #1A1510;
+  --background: #141110;
   --foreground: #EDE5DA;
 
-  /* Card: Dark brown */
-  --card: #2A2318;
+  /* Card: Dark brown — lighter than bg for clear elevation */
+  --card: #221D18;
   --card-foreground: #EDE5DA;
 
-  --popover: #2A2318;
+  --popover: #221D18;
   --popover-foreground: #EDE5DA;
 
   /* Primary: Gold Light becomes primary in dark */
   --primary: #D4B87A;
-  --primary-foreground: #1A1510;
+  --primary-foreground: #141110;
 
-  /* Secondary */
-  --secondary: #352D22;
+  /* Secondary: slightly lighter surface */
+  --secondary: #2D261E;
   --secondary-foreground: #EDE5DA;
 
-  /* Muted */
-  --muted: #352D22;
-  --muted-foreground: #9A8E80;
+  /* Muted: warm dark surface, lighter text for readability */
+  --muted: #2D261E;
+  --muted-foreground: #A99E90;
 
   /* Accent: Gold stays, slightly brighter */
   --accent: #D4B87A;
-  --accent-foreground: #1A1510;
+  --accent-foreground: #141110;
 
   --destructive: #D86860;
 
-  /* Border */
-  --border: rgba(255,255,255,0.08);
-  --input: rgba(255,255,255,0.10);
+  /* Border: visible in dark */
+  --border: rgba(255,255,255,0.10);
+  --input: rgba(255,255,255,0.12);
   --ring: #D4B87A;
 
   --chart-1: #D4B87A;
-  --chart-2: #9A8E80;
+  --chart-2: #A99E90;
   --chart-3: #7D6538;
   --chart-4: #F0E5D0;
   --chart-5: #EDE5DA;
 
-  --sidebar: #2A2318;
+  --sidebar: #221D18;
   --sidebar-foreground: #EDE5DA;
   --sidebar-primary: #D4B87A;
-  --sidebar-primary-foreground: #1A1510;
-  --sidebar-accent: #352D22;
+  --sidebar-primary-foreground: #141110;
+  --sidebar-accent: #2D261E;
   --sidebar-accent-foreground: #EDE5DA;
-  --sidebar-border: rgba(255,255,255,0.08);
+  --sidebar-border: rgba(255,255,255,0.10);
   --sidebar-ring: #D4B87A;
 }
+
+/* ── Dark mode shadow overrides ── */
+.dark .shadow-soft-sm { box-shadow: 0 1px 4px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.15); }
+.dark .shadow-soft-md { box-shadow: 0 4px 16px rgba(0,0,0,0.30), 0 1px 6px rgba(0,0,0,0.18); }
+.dark .shadow-soft-lg { box-shadow: 0 8px 28px rgba(0,0,0,0.35), 0 2px 10px rgba(0,0,0,0.20); }
+.dark .shadow-soft-xl { box-shadow: 0 16px 48px rgba(0,0,0,0.40), 0 4px 18px rgba(0,0,0,0.22); }
 
 /* ============================================
    BASE STYLES
    ============================================ */
-/* ============================================
-   SPACING SCALE (8px base)
-   ============================================ */
 @theme inline {
-  --spacing-page-x: 2rem;       /* 32px — mobile horizontal page padding */
-  --spacing-page-x-lg: 2rem;    /* 32px — desktop horizontal page padding */
-  --spacing-section-y: 6rem;    /* 96px — vertical section padding */
-  --spacing-section-y-lg: 8rem; /* 128px — large vertical section padding */
-  --spacing-navbar: 5rem;       /* 80px — navbar height */
+  --spacing-page-x: 2rem;         /* 32px — mobile horizontal page padding */
+  --spacing-page-x-lg: 3rem;      /* 48px — desktop horizontal page padding */
+  --spacing-section-y: 8rem;      /* 128px — vertical section padding */
+  --spacing-section-y-lg: 10rem;  /* 160px — large vertical section padding */
+  --spacing-navbar: 5rem;         /* 80px — navbar height */
 }
 
 @layer base {
@@ -257,20 +261,22 @@
    Smooth fade-between for route changes
    ============================================ */
 @keyframes pageEnter {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .page-enter {
-  animation: pageEnter 0.5s ease-out forwards;
+  animation: pageEnter 1s ease-out forwards;
 }
 
 /* ============================================
    STICKY NAVBAR RULES
+   Smooth transparent → blur transition
    ============================================ */
 .navbar-blur {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(max(0px, min(20px, 20px))) saturate(180%);
 }
 
 /* ============================================
@@ -293,8 +299,61 @@
   color: #EDE5DA;
 }
 
-/* Smooth image rendering */
-img { transition: opacity 0.5s ease; }
+/* Smooth image rendering — slow, premium transitions */
+img { transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.25, 0.4, 0.25, 1); }
+
+/* ============================================
+   FILM GRAIN TEXTURE OVERLAY
+   Subtle noise for premium tactile feel
+   ============================================ */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.015;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  will-change: transform;
+}
+.dark .grain-overlay {
+  opacity: 0.02;
+  mix-blend-mode: screen;
+}
+
+/* ============================================
+   SOFT LIGHTING — Warm light wash on images
+   Gentle directional glow for premium feel
+   ============================================ */
+.soft-light::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(201,169,110,0.07) 0%, transparent 45%),
+    linear-gradient(315deg, rgba(201,169,110,0.04) 100%, transparent 55%);
+  z-index: 1;
+  border-radius: inherit;
+  transition: opacity 0.8s ease;
+}
+.soft-light:hover::after {
+  opacity: 0.7;
+}
+
+/* ============================================
+   GENTLE HOVER SYSTEM
+   Slow, smooth transitions only (0.6s–1.2s)
+   Minimal movement — luxury whispers
+   ============================================ */
+.hover-gentle {
+  transition: all 0.9s cubic-bezier(0.25, 0.4, 0.25, 1);
+}
+.hover-gentle:hover {
+  transform: translateY(-1px);
+}
 
 /* ============================================
    DARK SECTION UTILITY
@@ -304,14 +363,14 @@ img { transition: opacity 0.5s ease; }
    Overrides semantic tokens locally.
    ============================================ */
 .dark-section {
-  --background: #2A1A0E;
+  --background: #0D0B09;
   --foreground: #EDE5DA;
-  --card: #3C2D1F;
+  --card: #1A1612;
   --card-foreground: #EDE5DA;
-  --muted: #3C2D1F;
+  --muted: #1A1612;
   --muted-foreground: #9A8E80;
   --border: rgba(255,255,255,0.06);
-  --secondary: #3C2D1F;
+  --secondary: #1A1612;
   --secondary-foreground: #EDE5DA;
 }
 
@@ -339,11 +398,11 @@ img { transition: opacity 0.5s ease; }
   to { width: 4rem; }
 }
 
-.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-.animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
-.animate-slide-down { animation: slideDown 0.5s ease-out forwards; }
-.animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
-.animate-width-expand { animation: widthExpand 1s ease-out forwards; }
+.animate-fade-in-up { animation: fadeInUp 1.2s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+.animate-slide-down { animation: slideDown 1s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 1s ease-out forwards; }
+.animate-width-expand { animation: widthExpand 1.4s ease-out forwards; }
 
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
@@ -368,7 +427,7 @@ img { transition: opacity 0.5s ease; }
   width: 0;
   height: 1px;
   background: currentColor;
-  transition: width 0.4s ease;
+  transition: width 1s cubic-bezier(0.25, 0.4, 0.25, 1);
 }
 .elegant-hover:hover::after {
   width: 100%;
@@ -382,5 +441,5 @@ img { transition: opacity 0.5s ease; }
 .shadow-soft-lg { box-shadow: var(--shadow-soft-lg); }
 .shadow-soft-xl { box-shadow: var(--shadow-soft-xl); }
 .shadow-gold { box-shadow: var(--shadow-gold); }
-.shadow-gold-glow { box-shadow: var(--shadow-gold-glow); }
+.shadow-gold-glow { box-shadow: var(--shadow-glow); }
 .shadow-gold-glow-lg { box-shadow: var(--shadow-gold-glow-lg); }

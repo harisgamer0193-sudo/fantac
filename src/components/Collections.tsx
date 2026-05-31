@@ -8,23 +8,33 @@ import Link from "next/link";
 const collections = [
   {
     title: "Sofas",
-    image: "/cat-sofas.png",
+    image: "/cat-sofas.jpg",
     href: "/collections?cat=Seating",
   },
   {
     title: "Beds",
-    image: "/cat-beds.png",
+    image: "/cat-beds.jpg",
     href: "/collections?cat=Bedroom",
   },
   {
     title: "Dining Sets",
-    image: "/cat-dining-sets.png",
+    image: "/cat-dining-sets.jpg",
     href: "/collections?cat=Dining",
   },
   {
     title: "Office Luxury",
-    image: "/cat-office-luxury.png",
+    image: "/cat-office-luxury.jpg",
     href: "/collections?cat=Office",
+  },
+  {
+    title: "Seating",
+    image: "/collection-seating.png",
+    href: "/collections?cat=Seating",
+  },
+  {
+    title: "Outdoor",
+    image: "/collection-outdoor.jpg",
+    href: "/collections?cat=Outdoor",
   },
 ];
 
@@ -103,8 +113,8 @@ export default function Collections() {
           />
         </div>
 
-        {/* Collections Grid — Desktop: 4 cols, Tablet: 2 cols, Mobile: 1 col */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {/* Collections Grid — Desktop: 3 cols, Tablet: 2 cols, Mobile: 1 col */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {collections.map((collection, index) => (
             <CollectionCard
               key={collection.title}

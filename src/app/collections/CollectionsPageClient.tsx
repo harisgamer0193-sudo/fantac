@@ -97,7 +97,6 @@ export default function CollectionsPageClient() {
                 id={product.id}
                 name={product.name}
                 category={product.category}
-                price={product.price}
                 image={product.image}
                 description={product.description}
                 material={product.material}
